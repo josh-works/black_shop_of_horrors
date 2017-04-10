@@ -6,7 +6,7 @@ RSpec.describe Item, type: :model do
     # it { should validate_uniqueness_of(:title) }
   end
 
-  it "item can be created" do
+  xit "item can be created" do
     Item.create(title: "Liver",
                 description: "Fresh livers from the healthiest patients",
                 price: 9999,

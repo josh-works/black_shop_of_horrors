@@ -19,7 +19,7 @@ RSpec.describe "as a visitor" do
   end
   # title: Visitor can view items
   context "can view all items" do
-    it "when on home page" do
+    xit "when on home page" do
       # As a visitor
 
       # When I visit "/items"
