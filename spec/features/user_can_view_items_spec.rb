@@ -17,7 +17,7 @@ RSpec.describe "as a visitor" do
                 price: 25499,
                 image: "http://www.sciencemadesimple.co.uk/files/2016/10/sn-pigheart.jpg")
   end
-
+  binding.pry
   # title: Visitor can view items
   context "can view all items" do
     it "when on home page" do
