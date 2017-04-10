@@ -1,0 +1,13 @@
+<h3>All items</h3>
+
+<div class="item list">
+  <ul>
+
+  <% @items.each do |item| %>
+    <img src="<%= item.image %>" alt="<%= item.title %> ">
+    <li><%= item.title %></li>
+    <%= item.description %>
+    <%= item.price %>
+  </ul>
+  <% end %>
+</div>
