@@ -1,13 +1,13 @@
   <h1><%= @category.title %></h1>
-  <%= image_tag @category.image %>
-
-Cart: <%= @cart.total_count %>
-
+  <%= image_tag @category.image %> <br>
+<h3>
+Items in Cart: <%= @cart.total_count %> <br>
+</h3>
 <% @items.each do |item| %>
-  <%= item.title %>
-  <%= item.description %>
-  <%= item.price %>
-  <%= image_tag item.image %>
+  <%= item.title %> <br>
+  <%= item.description %> <br>
+  $<%= item.price %> <br>
+  <%= image_tag item.image %> <br>
 
-  <%= button_to "Add #{item.title} to Cart!", cart_path(item_id: item.id), class: "btn btn-danger" %>
+  <%= button_to "Add #{item.title} to Cart!", carts_path(item_id: item.id), class: "btn btn-danger" %> <br> <br>
 <% end %>

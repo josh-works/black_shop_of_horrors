@@ -15,4 +15,7 @@ class PackagesController < ApplicationController
       #implement if you have validations
     end
   end
+
+  def show
+  end
 end
