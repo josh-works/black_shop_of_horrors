@@ -5,8 +5,7 @@
   <%= item.title %> <br>
   <%= item.description %> <br>
   $<%= item.price %> <br>
-
-  <%= button_to "Remove #{item.title} from Cart!", edit_cart_path(item_id: item.id), class: "btn btn-danger" %> <br> <br>
+  <%= link_to "Remove #{item.title} from Cart!", cart_path(item_id: item.id), method: :delete, class: "btn btn-danger" %> <br> <br>
 <% end %>
 
-<h3><%= @cart.total_cost %></h3>
+<h3>$<%= @cart.total_cost %></h3>

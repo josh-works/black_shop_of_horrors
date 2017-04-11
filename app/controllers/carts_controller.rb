@@ -16,7 +16,7 @@ class CartsController < ApplicationController
   end
 
   def index
-    @cart.delete(params[:item_id])
+    # @cart.delete(params[:item_id])
 
     # flash[:notice] = "You removed #{Item.find(params[:item_id]).title} from cart!"
 
@@ -26,7 +26,13 @@ class CartsController < ApplicationController
     byebug
   end
 
-  def delete
-    byebug
+  def destroy
+    item_id = params[:item_id]
+    @cart.delete(item_id)
+    redirect_to cart_path
   end
 end
+
+# add `update` method to handle add/remove items?
+# index shouldn't do anything to the cart
+# create should create new cart, not add items.
