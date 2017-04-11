@@ -1,7 +1,6 @@
 module ApplicationHelper
 
-  # def add_item_to_cart
-  #   current_cart ||= Cart.new
-  #   current_cart.contents[:item] = 1
+  # def remove_from_cart(item_id)
+  #   @cart.delete(item_id)
   # end
 end

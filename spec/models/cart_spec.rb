@@ -32,4 +32,13 @@ RSpec.describe Cart, type: :model do
     expect(cart.contents.keys.first).to eq("1")
     expect(Item.find(cart.contents.keys.first).title).to eq("Nuke")
   end
+
+  context "can remove single item from cart" do
+    it "deletes one item" do
+      cart = Cart.new({"1" => 3, "2" => 1})
+      cart.delete("1")
+      cart.delete("2")
+      expect(cart.total_count).to eq(2)
+    end
+  end
 end

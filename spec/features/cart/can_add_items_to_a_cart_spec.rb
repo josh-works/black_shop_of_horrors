@@ -4,8 +4,8 @@ RSpec.feature "Can add item to a cart", type: :feature do
   attr_reader :category
   before :each do
     @category = Category.create!(title: "Nuclear Weapons", image: "https://www.google.com")
-    @category.items.create!(title: "Nuke", description: "Blow thine enemies to smitherines", price: 22000000, image: "https://www.ilovenukes.com")
-    @category.items.create!(title: "Radioactive Terrorists", description: "Destroy everything", price: 5, image: "https://www.yikes.com")
+    @item1 = @category.items.create!(title: "Nuke", description: "Blow thine enemies to smitherines", price: 22000000, image: "https://www.ilovenukes.com")
+    @item2 = @category.items.create!(title: "Radioactive Terrorists", description: "Destroy everything", price: 5, image: "https://www.yikes.com")
   end
 
   scenario "adding items to cart" do
@@ -35,13 +35,12 @@ RSpec.feature "Can add item to a cart", type: :feature do
   end
 
   scenario "seeing items in a cart" do
-    category = Category.create!(title: "Nuclear Weapons", image: "https://www.google.com")
-    item1 = category.items.create!(title: "Nuke", description: "Blow thine enemies to smitherines", price: 22000000, image: "https://www.ilovenukes.com")
-    item2 = category.items.create!(title: "Radioactive Terrorists", description: "Destroy everything", price: 5, image: "https://www.yikes.com")
-    cart = Cart.new({item1.id => 1, item2.id => 3})
+    cart = Cart.new({@item1.id => 1, @item2.id => 3})
 
-    expect(cart.items.first).to be_instance_of(Item)
-
+    expect(cart.items.first).to be_an_instance_of(Item)
+    expect(cart.total_count).to be(4)
+    cart.contents.delete(@item2.id)
+    expect(cart.total_count).to be(1)
   end
 
   scenario "removing items from cart" do
@@ -62,11 +61,11 @@ RSpec.feature "Can add item to a cart", type: :feature do
     expect(page).to have_content("Items in Cart: 1")
     click_on "Add Radioactive Terrorists to Cart!"
     expect(page).to have_content("Items in Cart: 2")
-    visit cart_path
 
+    visit cart_path
+save_and_open_page
     expect(page).to have_content("You have 2 illegal items in your cart")
-    click_on "Remove Radioactive Terrorists from cart"
-    expect(page).to have_content("Radioactive Terrorists removed from cart")
+    click_on "Remove Radioactive Terrorists from Cart!"
     expect(page).to have_content("You have 1 illegal items in your cart")
 
 

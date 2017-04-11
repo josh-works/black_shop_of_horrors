@@ -16,5 +16,11 @@ class CartsController < ApplicationController
   end
 
   def index
+    byebug
+    @cart.delete(params[:item_id])
+
+    flash[:notice] = "You removed #{Item.find(params[:item_id]).title} from cart!"
+
   end
+
 end
