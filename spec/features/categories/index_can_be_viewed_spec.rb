@@ -3,12 +3,13 @@ require'rails_helper'
 RSpec.feature "home page is category index", type: :feature do
 
   scenario "can see info on home page" do
-    Category.create!(title: "Josh's Limbs", image: "https://ca.slack-edge.com/T029P2S9M-U38EDMUCE-bf26ea5fd4a9-1024")
+    organs = Category.create(title: "Organs", image: "https://thumb7.shutterstock.com/display_pic_with_logo/90991/90991,1301604734,1/stock-vector-internal-organs-74337634.jpg")
     visit root_path
     expect(page).to have_content("Welcome to the Black Market of Horrors")
-    expect(page).to have_content("Log in")
-    expect(page).to have_content("Sign up")
-    expect(page).to have_content("Josh's Limbs")
+    # expect(page).to have_content("Log in")
+    # expect(page).to have_content("Sign up")
+    expect(page).to have_content("Organs")
+    expect(page).to have_link "View all Organs", categories_path(organs)
   end
 
 end
