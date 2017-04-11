@@ -24,11 +24,23 @@ RSpec.feature "Can add item to a cart", type: :feature do
     expect(page).to have_content("Items in Cart: 0")
 
     click_on "Add Nuke to Cart!"
-    
+
     expect(page).to have_content("Items in Cart: 1")
 
     click_on "Add Radioactive Terrorists to Cart!"
 
     expect(page).to have_content("Items in Cart: 2")
+  end
+
+  scenario "seeing items in a cart" do
+    Package.create!(username: "Charlie", id: 1)
+    category = Category.create!(title: "Nuclear Weapons", image: "https://www.google.com")
+    category.items.create!(title: "Nuke", description: "Blow thine enemies to smitherines", price: 22000000, image: "https://www.ilovenukes.com", package_id: 1)
+    category.items.create!(title: "Radioactive Terrorists", description: "Destroy everything", price: 5, image: "https://www.yikes.com", package_id: 1)
+    cart = Cart.new
+    cart.contents[category.items.first.id] = 1
+    cart.contents[category.items.last.id] = 2
+
+    expect(cart.items.first).to eq(category.items.first)
   end
 end

@@ -1,7 +1,7 @@
 class Cart
   attr_reader :contents
 
-  def initialize(initial_contents)
+  def initialize(initial_contents = {})
     @contents = initial_contents || {}
   end
 
@@ -16,5 +16,11 @@ class Cart
 
   def count_of(item_id)
     contents[item_id.to_s]
+  end
+
+  def items
+    contents.keys.map do |ids|
+      Item.find(ids)
+    end
   end
 end
