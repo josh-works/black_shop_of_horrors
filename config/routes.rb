@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index]
   resources :categories, only: [:new, :index, :create, :show]
   resources :packages, only: [:create]
+  get '/cart', to: 'carts#index'
   resources :carts
 
 

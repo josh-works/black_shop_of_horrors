@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Cart, type: :model do
+  before :each do
+    weapons = Category.create(title: "Weapons", image: "www.nuke.com")
+    weapons.items.create(title: "Nuke", image: "www.nuke.com", id: 1)
+  end
+
   it "can calculate the total number of items it holds" do
     cart = Cart.new({"1" => 2, "2" => 3})
 
@@ -20,5 +25,11 @@ RSpec.describe Cart, type: :model do
     cart = Cart.new({"1" => 3, "2" => 1})
 
     expect(cart.count_of(1)).to eq(3)
+  end
+
+  it "knows its item ids" do
+    cart = Cart.new({"1" => 3, "2" => 1})
+    expect(cart.contents.keys.first).to eq("1")
+    expect(Item.find(cart.contents.keys.first).title).to eq("Nuke")
   end
 end
