@@ -14,4 +14,7 @@ class CartsController < ApplicationController
   def show
     redirect_to categories_path
   end
+
+  def index
+  end
 end

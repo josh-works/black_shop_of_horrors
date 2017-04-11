@@ -20,21 +20,18 @@ Item.create(title: "Heart",
             price: 25499,
             image: "http://www.sciencemadesimple.co.uk/files/2016/10/sn-pigheart.jpg",
             category_id: 1,
-            package_id: 1
             )
 Item.create(title: "Liver",
             description: "All of our hearts will eventually wear out. Why let yours?",
             price: 34,
             image: "http://www.sciencemadesimple.co.uk/files/2016/10/sn-pigheart.jpg",
             category_id: 1,
-            package_id: 1
             )
 Item.create(title: "Brain",
             description: "All of our hearts will eventually wear out. Why let yours?",
             price: 25234499,
             image: "http://www.sciencemadesimple.co.uk/files/2016/10/sn-pigheart.jpg",
             category_id: 1,
-            package_id: 1
             )
 
 # Item.create!(title: "", description: "", image: "", price: "")
