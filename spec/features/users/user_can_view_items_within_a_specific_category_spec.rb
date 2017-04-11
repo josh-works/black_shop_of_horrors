@@ -10,9 +10,7 @@ RSpec.feature "When a user visits category parent path, they see a list of
   end
 
   scenario "A list of items belonging to their category is displayed" do
-    # binding.pry
     visit categories_path
-    # save_and_open_page
     expect(page).to have_content("Liver")
     expect(page).to have_content("Small Intestines")
     expect(page).to have_content("Heart")

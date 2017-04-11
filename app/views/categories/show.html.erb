@@ -9,5 +9,5 @@ Items in Cart: <%= @cart.total_count %> <br>
   $<%= item.price %> <br>
   <%= image_tag item.image %> <br>
 
-  <%= button_to "Add #{item.title} to Cart!", carts_path(item_id: item.id), class: "btn btn-danger" %> <br> <br>
+  <%= button_to "Add #{item.title} to Cart!", cart_path(item_id: item.id), class: "btn btn-danger" %> <br> <br>
 <% end %>

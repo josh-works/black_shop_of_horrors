@@ -17,4 +17,24 @@ class Cart
   def count_of(item_id)
     contents[item_id.to_s]
   end
+
+  def items
+    contents.keys.map do |id|
+      Item.find(id)
+    end
+  end
+
+  def delete(key)
+    if contents[key.to_s] > 1
+      contents[key.to_s] = (contents[key.to_s] - 1)
+    else
+      contents.delete(key.to_s)
+    end
+  end
+
+  def total_cost
+    cost = 0
+    items.each { |item| cost += item.price }
+    cost
+  end
 end
