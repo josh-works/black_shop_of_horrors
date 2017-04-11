@@ -63,7 +63,6 @@ RSpec.feature "Can add item to a cart", type: :feature do
     expect(page).to have_content("Items in Cart: 2")
 
     visit cart_path
-save_and_open_page
     expect(page).to have_content("You have 2 illegal items in your cart")
     click_on "Remove Radioactive Terrorists from Cart!"
     expect(page).to have_content("You have 1 illegal items in your cart")

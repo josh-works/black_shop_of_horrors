@@ -31,4 +31,10 @@ class Cart
       contents.delete(key.to_s)
     end
   end
+
+  def total_cost
+    cost = 0
+    items.each { |item| cost += item.price }
+    cost
+  end
 end

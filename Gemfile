@@ -39,6 +39,7 @@ group :development, :test do
   gem 'awesome_print'
   gem 'pry'
   gem 'launchy'
+  gem 'database_cleaner'
 end
 
 group :development do
