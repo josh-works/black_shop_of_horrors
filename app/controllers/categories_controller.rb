@@ -13,6 +13,12 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+    # binding.pry
+  end
+
+  def show
+    @category = Category.find(params[:id])
+    @items = @category.items
   end
 
   private

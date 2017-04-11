@@ -1,22 +1,16 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Black Market</title>
-  </head>
+<h1>Welcome to the Black Market of Horrors</h1>
+<%= link_to "Log in", "session#index" %>
+<%= link_to "Sign up", "session#index" %>
 
-  <body>
-
-    <h1>Welcome to the Black Market of Horrors</h1>
-    <%= link_to "Log in", "session#index" %>
-    <%= link_to "Sign up", "session#index" %>
-
-    <div class="categories">
-      <% @categories.each do |category| %>
-      <h1> <%= category.title %></h1>
-      <%= image_tag category.image %>
-      <% end %>
-    </div>
-
-  </body>
-</html>
+<div class="categories">
+  <% @categories.each do |category| %>
+  <h1> <%= category.title %></h1>
+    <% category.items.each do |item| %>
+      <%= item.title %>
+      <%= item.description %>
+      <%= image_tag item.image %>
+    <% end %>
+    <%= image_tag category.image %>
+    <%= link_to "View all #{category.title}", category_path(category) %>
+  <% end %>
+</div>
