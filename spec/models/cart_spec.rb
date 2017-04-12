@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe Cart, type: :model do
   before :each do
     weapons = Category.create(title: "Weapons", image: "www.nuke.com")
-    i1 = weapons.items.create(title: "Nuke", image: "www.nuke.com", price: 22, id: 1)
-    i2 = weapons.items.create(title: "Banana", image: "www.banana.com", price: 23, id: 2)
+    @i1 = weapons.items.create(title: "Nuke", image: "www.nuke.com", price: 22, description: "hello world!")
+    @i2 = weapons.items.create(title: "Banana", image: "www.banana.com", price: 23, description: "hi josh, chris, and banana")
   end
 
   it "can calculate the total number of items it holds" do
@@ -29,8 +29,8 @@ RSpec.describe Cart, type: :model do
   end
 
   it "knows its item ids" do
-    cart = Cart.new({"1" => 3, "2" => 1})
-    expect(cart.contents.keys.first).to eq("1")
+    cart = Cart.new({@i1.id.to_s => 3, @i2.id.to_s => 1})
+    expect(cart.items.first).to be_an_instance_of(Item)
     expect(Item.find(cart.contents.keys.first).title).to eq("Nuke")
   end
 
@@ -44,7 +44,7 @@ RSpec.describe Cart, type: :model do
   end
 
   it "calculates total cost of items" do
-    cart = Cart.new({"1" => 3, "2" => 1})
+    cart = Cart.new({@i1.id.to_s => 3, @i2.id.to_s => 1})
     expect(cart.total_cost).to eq(45)
   end
 end
