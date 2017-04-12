@@ -34,7 +34,7 @@ class Cart
 
   def total_cost
     cost = 0
-    items.each { |item| cost += item.price }
+    contents.each{ |key, value| cost += (Item.find(key).price * value) }
     cost
   end
 end
