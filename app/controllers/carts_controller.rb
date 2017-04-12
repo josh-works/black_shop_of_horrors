@@ -27,7 +27,3 @@ class CartsController < ApplicationController
     redirect_to cart_path
   end
 end
-
-# add `update` method to handle add/remove items?
-# index shouldn't do anything to the cart
-# create should create new cart, not add items.
