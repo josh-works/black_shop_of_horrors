@@ -5,12 +5,7 @@
 <div class="categories">
   <% @categories.each do |category| %>
   <h1> <%= category.title %></h1>
-    <% category.items.each do |item| %>
-      <%= item.title %>
-      <%= item.description %>
-      <%= image_tag item.image %>
-    <% end %>
     <%= image_tag category.image %>
-    <%= link_to "View all #{category.title}", category_path(category) %>
+    <%= link_to "View all #{category.title}", '/category.title' %>
   <% end %>
 </div>

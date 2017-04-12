@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
 
   get "/:category_slug", to: 'categories#show', as: :category
-  resources :categories, only: [:new, :index, :create, :show]
+  resources :categories, only: [:new, :index, :create]
+
   get '/cart', to: 'carts#index'
   resource :cart, only: [:show, :create, :index, :destroy]
 

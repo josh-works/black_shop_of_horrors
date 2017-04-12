@@ -7,9 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Category.destroy_all
 Item.destroy_all
-Package.destroy_all
-# Item.destroy_all
-Package.create!(username: "Carl", id: 1)
+
 Category.create!(title: "Organs", image: "http://theamishworkshop.com/uploads/7/5/1/2/75128337/fanbackcombo_orig.jpg")
 Category.create!(title: "Seth's hair follicles", image: "https://www.cellapplications.com/sites/default/files/Hair.jpg")
 Category.create!(title: "Biological Weapons", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/WMD-biological.svg/200px-WMD-biological.svg.png")

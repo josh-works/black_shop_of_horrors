@@ -18,7 +18,6 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find_by(slug: params[:category_slug])
 
-    # byebug
     @items = @category.items
   end
 
