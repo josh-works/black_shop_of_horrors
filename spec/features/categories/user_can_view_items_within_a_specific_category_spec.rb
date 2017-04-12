@@ -11,7 +11,7 @@ RSpec.feature "When a user visits category parent path, they see a list of
 
   scenario "A list of items belonging to their category is displayed" do
     visit '/organs'
-    
+
     expect(page).to have_content("Liver")
     expect(page).to have_content("Small Intestines")
     expect(page).to have_content("Heart")

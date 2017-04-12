@@ -7,7 +7,8 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
 
     if @category.save
-      redirect_to categories_path
+      # binding.pry
+      redirect_to category_path(@category)
     end
   end
 
@@ -17,7 +18,9 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find_by(slug: params[:category_slug])
-    # byebug
+    # if params[:category_slug] == "/cart"
+    #   redirect_to cart_path
+    # end
     @items = @category.items
   end
 

@@ -6,6 +6,6 @@
   <% @categories.each do |category| %>
   <h1> <%= category.title %></h1>
     <%= image_tag category.image %>
-    <%= link_to "View all #{category.title}", '/category.title' %>
+    <%= link_to "View all #{category.title}", "/#{category.slug}" %>
   <% end %>
 </div>

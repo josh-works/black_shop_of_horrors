@@ -10,7 +10,6 @@ RSpec.feature "Can add item to a cart", type: :feature do
 
   scenario "adding items to cart" do
     visit root_path
-
     click_on "View all Nuclear Weapons"
 
     expect(current_path).to eq(category_path(category))
@@ -61,7 +60,7 @@ RSpec.feature "Can add item to a cart", type: :feature do
     expect(page).to have_content("Items in Cart: 1")
     click_on "Add Radioactive Terrorists to Cart!"
     expect(page).to have_content("Items in Cart: 2")
-
+    # binding.pry
     visit cart_path
     expect(page).to have_content("You have 2 illegal items in your cart")
     click_on "Remove Radioactive Terrorists from Cart!"
