@@ -11,7 +11,6 @@ RSpec.describe "creating new default user" do
       fill_in "Password confirmation", with: "seth12"
 
       click_on "Create User"
-      
       expect(current_path).to eq(root_path)
       expect(page).to have_content("Account Created!")
       expect(page).to have_content("logout")
