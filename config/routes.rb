@@ -10,8 +10,12 @@ Rails.application.routes.draw do
   get "/:category_slug", to: 'categories#show', as: :category
   resources :categories, only: [:new, :index, :create]
 
-
-  # get    '/login',  to: 'sessions#new',     as: 'login'
-  # post   '/login',  to: 'sessions#create'
-  # delete '/logout', to: 'sessions#destroy', as: 'logout'
+  resources :users, only: [:new, :create, :show]
+  namespace :admin do
+    resources :users, only: [:index]
+  end
+  
+  get    '/login',  to: 'sessions#new',     as: 'login'
+  post   '/login',  to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy', as: 'logout'
 end
