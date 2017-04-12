@@ -7,7 +7,7 @@ class User < ApplicationRecord
             :password,
             :password_confirmation,
             presence: true
-            
+
   validates :email,
              uniqueness: true
 
