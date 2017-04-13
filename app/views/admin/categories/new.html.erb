@@ -1,0 +1,13 @@
+<h1>
+  Create a new Category to sell your items!
+</h1>
+
+<%= form_for @category, url: admin_categories_path do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+
+<%= f.label :image %>
+<%= f.text_field :image %>
+
+<%= f.submit 'Create Category' %>
+<% end %>

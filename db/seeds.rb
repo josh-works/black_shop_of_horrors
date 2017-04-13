@@ -13,6 +13,7 @@ Category.create!(title: "Seth's hair follicles", image: "https://www.cellapplica
 Category.create!(title: "Biological Weapons", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/WMD-biological.svg/200px-WMD-biological.svg.png")
 Category.create!(title: "Plumbus", image: "https://www.thinkgeek.com/images/products/zoom/ivns_plumbus.jpg")
 
+
 organ.items.create!(title: "Heart",
             description: "All of our hearts will eventually wear out. Why let yours?",
             price: 25499,

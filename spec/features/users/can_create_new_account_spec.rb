@@ -1,21 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe "creating new default user" do
-  xcontext "starting from new user page" do
+  context "starting from new user page" do
     it "can be created" do
-      visit "/signup"
+      visit "/login"
+      click_on 'Create Account'
+
       fill_in "Email", with: "seth@seth.com"
       fill_in "First name", with: "Seth"
       fill_in "Last name", with: "seth"
       fill_in "Password", with: "seth12"
       fill_in "Password confirmation", with: "seth12"
 
-      click_on "Create User"
-      expect(current_path).to eq(root_path)
-      expect(page).to have_content("Account Created!")
-      save_and_open_page
-      expect(page).to have_content("logout")
-      # failing on this last expect ^^
+      click_on "Create Account"
+
+      expect(current_path).to eq(dashboard_path)
+      expect(page).to have_content("Logged in as Seth")
+      expect(page).to have_content("Logout")
     end
   end
 end
