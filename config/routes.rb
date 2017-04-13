@@ -9,8 +9,8 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:new, :index, :create]
 
-  get "/signup", to: "users#new", as: :user
-  resources :users, only: [:new, :create, :show]
+  get "/signup", to: "users#new", as: 'signup'
+  resources :users, only: [:create, :show]
 
   namespace :admin do
     resources :users, only: [:index]
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get    '/login',  to: 'sessions#new',     as: 'login'
   post   '/login',  to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy', as: 'logout'
-  
-  get "/:category_slug", to: 'categories#show', as: :category
+  get    '/dashboard', to: 'sessions#show', as: 'dashboard'
+  get    '/:category_slug', to: 'categories#show', as: :category
 
 end
