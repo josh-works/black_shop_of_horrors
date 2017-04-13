@@ -1,4 +1,5 @@
 class CartItem < SimpleDelegator
+  include ActionView::Helpers::NumberHelper
   attr_reader :id, :quantity
   def initialize(id, quantity)
     @id = id
@@ -7,6 +8,6 @@ class CartItem < SimpleDelegator
   end
 
   def subtotal
-    price * quantity
+    number_to_currency(price * quantity)
   end
 end

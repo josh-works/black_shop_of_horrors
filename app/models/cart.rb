@@ -1,4 +1,6 @@
 class Cart
+  include ActionView::Helpers::NumberHelper
+
   attr_reader :contents
 
   def initialize(initial_contents)
@@ -35,7 +37,7 @@ class Cart
   def total_cost
     cost = 0
     contents.each{ |key, value| cost += (Item.find(key).price * value) }
-    cost
+    number_to_currency(cost)
   end
 
   def cart_items
