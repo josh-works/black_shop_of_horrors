@@ -7,17 +7,16 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
 
     if @category.save
-      redirect_to categories_path
+      redirect_to category_path(@category)
     end
   end
 
   def index
     @categories = Category.all
-    # binding.pry
   end
 
   def show
-    @category = Category.find(params[:id])
+    @category = Category.find_by(slug: params[:category_slug])
     @items = @category.items
   end
 

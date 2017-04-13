@@ -28,9 +28,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 gem 'materialize-sass'
 gem 'material_icons'
+gem 'bcrypt'
 
 
 
@@ -40,6 +40,7 @@ group :development, :test do
   gem 'awesome_print'
   gem 'pry'
   gem 'launchy'
+  gem 'database_cleaner'
 end
 
 group :development do

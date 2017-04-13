@@ -14,4 +14,16 @@ class CartsController < ApplicationController
   def show
     redirect_to categories_path
   end
+
+  def index
+  end
+
+  def edit
+  end
+
+  def destroy
+    item_id = params[:item_id]
+    @cart.delete(item_id)
+    redirect_to cart_path
+  end
 end
