@@ -7,22 +7,6 @@
 // @import "materialize/extras/nouislider";
 // @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 //
-// .categories {
-//   table {
-//     border-collapse: collapse;
-//   }
-//
-//   table tr td {
-//     padding: 5px;
-//     vertical-align: top;
-//   }
-//
-//   .list_image {
-//     width: 60px;
-//     height: 70px;
-//   }
-//
-// }
 
 .categories {
   table {
@@ -34,12 +18,12 @@
     vertical-align: top;
   }
 
-  .list_image {
-    width: 60px;
-    height: 70px;
+  .category_image {
+    width: 100px;
+    height: 120px;
   }
 
-  .list_description {
+  .category_title {
     width: 60%;
   }
 
@@ -63,11 +47,11 @@
     padding-left: 1em;
   }
 
-  .list_line_even {
+  .category_line_even {
     background: #e0f8f8;
   }
 
-  .list_line_odd {
-    background: #f8b0f8;
+  .category_line_odd {
+    background: #f3fafe;
   }
 }

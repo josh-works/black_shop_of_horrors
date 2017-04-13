@@ -9,6 +9,11 @@
   </head>
 
   <body class="<%= controller.controller_name %>">
+
+    <%= link_to "Log in", "/login" %>
+    <%= link_to "Sign up", "/signup" %>
+
+    
     <%= yield %>
   </body>
 </html>
