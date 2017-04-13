@@ -9,6 +9,13 @@
 //
 
 // style categories index and show page
+
+.banner_image {
+  width: 350px;
+  height: 200px;
+}
+
+
 .categories {
   table {
     border-collapse: collapse;
@@ -17,11 +24,6 @@
   table tr td {
     padding: 5px;
     vertical-align: top;
-  }
-
-  .banner_image {
-    width: 350;
-    height: 200;
   }
 
   .category_image {
