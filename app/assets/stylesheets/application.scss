@@ -113,7 +113,6 @@ body, body > p, body > ol, body > ul, body > td {margin: 8px !important}
   #side {
     padding: 1em 2em;
     background: #141;
-
     ul {
       padding: 0;
 
@@ -122,6 +121,7 @@ body, body > p, body > ol, body > ul, body > td {margin: 8px !important}
 
         a {
           color: #bfb;
+          text-decoration: none;
           font-size: small;
         }
       }
