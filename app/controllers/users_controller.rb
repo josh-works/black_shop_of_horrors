@@ -12,9 +12,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      flash[:loggedin] = "Account Created!"
+      flash[:success] = "Logged in as #{@user.first_name}"
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       render :new
     end
