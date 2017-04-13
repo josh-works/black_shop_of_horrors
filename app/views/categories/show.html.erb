@@ -1,34 +1,37 @@
-  <h1><%= @category.title %></h1>
-  <%= image_tag @category.image %> <br>
-<h3>
-Items in Cart: <%= @cart.total_count %> <br>
-</h3>
-<% @items.each do |item| %>
-  <%= item.title %> <br>
-  <%= item.description %> <br>
-  $<%= item.price %> <br>
-  <%= image_tag item.image %> <br>
+<p id="notice"><%= notice %></p>
 
-  <%= button_to "Add #{item.title} to Cart!", cart_path(item_id: item.id), class: "btn btn-danger" %> <br> <br>
-<% end %>
+<h1><%= @category.title %></h1>
+  <%= image_tag(@category.image, class: 'category_image')  %> <br>
+
+<h3>Items in Cart: <%= @cart.total_count %></h3>
 
 <table>
-  <% @categories.each do |category| %>
-    <tr class="<%= cycle('category_line_odd', 'category_line_even') %>">
-      <td>
-        <%= image_tag(category.image, class: 'category_image') %>
-      </td>
+<% @items.each do |item| %>
+  <tr class="<%= cycle('category_line_even', 'category_line_odd') %>" %>
 
-      <td class "category_title">
-        <dl>
-          <dt><%= category.title %></dt>
-        </dl>
-      </td>
+    <td>
+      <%= image_tag(item.image, class: 'product_image') %>
+    </td>
 
-      <td class="category_actions">
-        <%= link_to 'View', "/#{category.slug}" %>
-      </td>
+    <td class="category_description">
+      <dl>
+        <dt><%= item.title %></dt>
+        <dd><%= item.description %></dd>
+      </dl>
+    </td>
+    <td class="price">
+      <dl>
+        <dt>
+          <span class="price"><%= number_to_currency(item.price) %></span>
+        </dt>
+      </dl>
+    </td>
 
-    </tr>
-    <% end %>
+    <td class="list_actions">
+      <%= button_to "Add #{item.title} to Cart!", cart_path(item_id: item.id), class: "btn btn-danger" %> <br> <br>
+    </td>
+
+
+  </tr>
+<% end %>
 </table>
