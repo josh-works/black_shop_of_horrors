@@ -12,10 +12,15 @@ class CartsController < ApplicationController
   end
 
   def show
-    redirect_to categories_path
+    byebug
+    @cart_item = @cart.cart_items
+    # redirect_to categories_path
   end
 
   def index
+    binding.pry
+    @cart_item = @cart.cart_items
+
   end
 
   def edit

@@ -37,4 +37,10 @@ class Cart
     contents.each{ |key, value| cost += (Item.find(key).price * value) }
     cost
   end
+
+  def cart_items
+    contents.map do |id, quantity|
+      CartItem.new(id, quantity)
+    end
+  end
 end
