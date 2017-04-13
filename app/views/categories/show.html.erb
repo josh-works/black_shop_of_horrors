@@ -1,18 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%= @category.title %></h1>
-  <%= image_tag(@category.image, class: 'category_image')  %> <br>
+  <%= image_tag(@category.image, class: 'banner_image')  %> <br>
 
 <h3>Items in Cart: <%= @cart.total_count %></h3>
 
 <table>
 <% @items.each do |item| %>
   <tr class="<%= cycle('category_line_even', 'category_line_odd') %>" %>
-
     <td>
-      <%= image_tag(item.image, class: 'product_image') %>
+      <%= image_tag(item.image, class: 'category_image') %>
     </td>
-
     <td class="category_description">
       <dl>
         <dt><%= item.title %></dt>
@@ -26,12 +24,9 @@
         </dt>
       </dl>
     </td>
-
     <td class="list_actions">
-      <%= button_to "Add #{item.title} to Cart!", cart_path(item_id: item.id), class: "btn btn-danger" %> <br> <br>
+      <%= button_to "Add #{item.title} to Cart!", cart_path(item_id: item.id), class: "btn btn-danger" %>
     </td>
-
-
   </tr>
 <% end %>
 </table>
