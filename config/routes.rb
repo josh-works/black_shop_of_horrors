@@ -1,17 +1,24 @@
 Rails.application.routes.draw do
+  root to: "sessions#index"
 
-  root to: "categories#index"
   get '/cart', to: 'carts#index'
+
   resource :cart, only: [:show, :create, :index, :destroy]
+  resources :items, :categories, only: [:index]
+  resources :users, only: [:create, :show]
 
-  resources :items, only: [:index]
+  namespace :admin do
+    resources :users, only: [:index, :update]
+    resources :items, :categories, only: [:create, :update, :destroy]
+    get '/create-category',  to: 'categories#new',   as: 'create_category'
+    get '/create-item',      to: 'items#new',        as: 'create_item'
+  end
 
+  get    "/signup",         to: "users#new",        as: 'signup'
+  get    '/login',          to: 'sessions#new',     as: 'login'
+  post   '/login',          to: 'sessions#create'
+  delete '/logout',         to: 'sessions#destroy', as: 'logout'
+  get    '/dashboard',      to: 'sessions#show',    as: 'dashboard'
+  get    '/:category_slug', to: 'categories#show',  as: :category
 
-  get "/:category_slug", to: 'categories#show', as: :category
-  resources :categories, only: [:new, :index, :create]
-
-
-  # get    '/login',  to: 'sessions#new',     as: 'login'
-  # post   '/login',  to: 'sessions#create'
-  # delete '/logout', to: 'sessions#destroy', as: 'logout'
 end

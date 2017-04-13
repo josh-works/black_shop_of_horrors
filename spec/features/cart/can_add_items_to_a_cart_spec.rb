@@ -9,14 +9,13 @@ RSpec.feature "Can add item to a cart", type: :feature do
   end
 
   scenario "adding items to cart" do
-    visit root_path
-    click_on "View all Nuclear Weapons"
-
+    visit categories_path
+    click_on "View"
     expect(current_path).to eq(category_path(category))
 
     expect(page).to have_content("Nuke")
     expect(page).to have_content("Blow thine enemies to smitherines")
-    expect(page).to have_content("22000000")
+    expect(page).to have_content("$22,000,000.00")
 
     expect(page).to have_content("Radioactive Terrorists")
     expect(page).to have_content("Destroy everything")
@@ -43,25 +42,30 @@ RSpec.feature "Can add item to a cart", type: :feature do
   end
 
   scenario "removing items from cart" do
-    visit root_path
+    visit "/categories"
 
-    click_on "View all Nuclear Weapons"
+    click_on "View"
 
     expect(current_path).to eq(category_path(category))
 
     expect(page).to have_content("Nuke")
     expect(page).to have_content("Blow thine enemies to smitherines")
-    expect(page).to have_content("22000000")
+    expect(page).to have_content("$22,000,000.00")
     expect(page).to have_content("Radioactive Terrorists")
     expect(page).to have_content("Destroy everything")
     expect(page).to have_content("5")
     expect(page).to have_content("Items in Cart: 0")
+
     click_on "Add Nuke to Cart!"
+
     expect(page).to have_content("Items in Cart: 1")
+
     click_on "Add Radioactive Terrorists to Cart!"
+
     expect(page).to have_content("Items in Cart: 2")
-    # binding.pry
+
     visit cart_path
+
     expect(page).to have_content("You have 2 illegal items in your cart")
     click_on "Remove Radioactive Terrorists from Cart!"
     expect(page).to have_content("You have 1 illegal items in your cart")
