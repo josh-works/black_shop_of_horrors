@@ -1,11 +1,8 @@
-<h1>Your cart!</h1> <br>
-<h3>You have <%= @cart.total_count %> illegal items in your cart</h3> <br>
-
-<% @cart.items.each do |item| %>
-  <%= item.title %> <br>
+<h1>Order History</h1>
+<% @cart_item.each do |item| %>
+  <%= item.title %>: <%= item.quantity %> <br>
   <%= item.description %> <br>
-  $<%= item.price %> <br>
-  <%= link_to "Remove #{item.title} from Cart!", cart_path(item_id: item.id), method: :delete, class: "btn btn-danger" %> <br> <br>
+  $<%= item.subtotal %> <br>
 <% end %>
 
 <h3>$<%= @cart.total_cost %></h3>

@@ -101,7 +101,7 @@ body, body > p, body > ol, body > ul, body > td {margin: 8px !important}
 }
 
 #columns {
-  background: #141;
+  background: black;
   display: flex;
 
   #main {
@@ -112,7 +112,7 @@ body, body > p, body > ol, body > ul, body > td {margin: 8px !important}
 
   #side {
     padding: 1em 2em;
-    background: #141;
+    background: black;
     ul {
       padding: 0;
 
@@ -120,7 +120,7 @@ body, body > p, body > ol, body > ul, body > td {margin: 8px !important}
         list-style: none;
 
         a {
-          color: #bfb;
+          color: white;
           text-decoration: none;
           font-size: small;
         }

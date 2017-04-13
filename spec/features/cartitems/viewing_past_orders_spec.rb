@@ -7,13 +7,15 @@ RSpec.feature "Cart Items index viewing all past orders" do
     @item1 = @organs.items.create!(title: "Liver", price: 350, description: "beep", image: "https://ichef-1.bbci.co.uk/news/1024/media/images/73793000/jpg/_73793871_liver.jpg")
     @item2 = @organs.items.create!(title: "Small Intestines", price: 450, description: "Rick", image: "http://img.clipartall.com/illustration-of-a-small-small-intestine-clipart-1094_1300.jpg")
     @item3 = @organs.items.create!(title: "Heart", price: 1000, description: "Morty", image: "http://www.sciencemadesimple.co.uk/files/2016/10/sn-pigheart.jpg")
-    CartItem.new([@item1, @item2, @item3], 2)
+    @cart = Cart.new({@item1 => 2, @item2 => 1, @item3 => 1})
+    @cart.cart_items
   end
 
   context "when visiting /orders" do
     it "shows past orders" do
       visit orders_path
       click_on "View Cart"
+
       expect(page).to have_content("$1800")
       expect(page).to have_content(@item1.title)
       expect(page).to have_content(@item2.title)
