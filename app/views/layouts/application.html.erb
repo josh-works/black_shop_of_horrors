@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BlackShopOfHorrors</title>
+    <title>Black Shop Of Horrors</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="<%= controller.controller_name %>">
+    <div id="banner">
+      <%= image_tag 'https://image.flaticon.com/icons/png/128/69/69682.png', alt: 'Little Shop of Horrors' %>
+      <span class="title"><%= @page_title %></span>
+    </div>
+    <div id="columns">
+      <div id="side">
+        <ul>
+          <li><%= link_to "Home", root_path %></li>
+          <li><a href="www">FAQs</a></li>
+          <li><a href="www">Contact</a></li>
+          <li><a href="www">News</a></li>
+          <%= link_to "Log in", "/login" %>
+          <%= link_to "Sign up", "/signup" %>
+        </ul>
+      </div>
+      <div id="main">
+
+        <%= yield %>
+
+      </div>
+    </div>
   </body>
 </html>

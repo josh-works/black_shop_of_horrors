@@ -1,11 +1,26 @@
-<h1>Welcome to the Black Market of Horrors</h1>
-<%= link_to "Log in", "/login" %>
-<%= link_to "Sign up", "/signup" %>
+<p id="notice"><%= notice %></p>
 
-<div class="categories">
+<h1>Welcome to the Black Market of Horrors</h1>
+<h2>Categories</h2>
+
+
+<table>
   <% @categories.each do |category| %>
-  <h1> <%= category.title %></h1>
-    <%= image_tag category.image %>
-    <%= link_to "View all #{category.title}", "/#{category.slug}" %>
-  <% end %>
-</div>
+    <tr class="<%= cycle('category_line_odd', 'category_line_even') %>">
+      <td>
+        <%= image_tag(category.image, class: 'category_image') %>
+      </td>
+
+      <td class "category_title">
+        <dl>
+          <dt><%= category.title %></dt>
+        </dl>
+      </td>
+
+      <td class="category_actions">
+        <%= link_to 'View', "/#{category.slug}" %>
+      </td>
+
+    </tr>
+    <% end %>
+</table>

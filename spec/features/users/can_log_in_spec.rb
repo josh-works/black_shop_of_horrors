@@ -3,13 +3,12 @@ require 'rails_helper'
 RSpec.describe User do
   before(:each) do
     User.create!(email: "seth@seth", first_name: "seth", last_name: "seth", password: "banana1", password_confirmation: "banana1")
-
   end
+
   it "can log in and out with right credentials" do
     visit '/login'
 
     expect(page).to have_content("Create Account")
-
     fill_in "Email", with: "seth@seth"
     fill_in "Password", with: "banana1"
 

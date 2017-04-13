@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Visitor can get to the new accounts page from the login button" do
-  scenario "they can get to new account page and make an account" do
+  xscenario "they can get to new account page and make an account" do
     visit '/'
     expect(page).to have_content('Login')
 
@@ -14,7 +14,7 @@ RSpec.feature "Visitor can get to the new accounts page from the login button" d
     expect(page).to have_content('Create Account')
 end
 
-scenario "Visitor can create a new account" do
+xscenario "Visitor can create a new account" do
   visit '/login'
   click_link 'Create Account'
 
@@ -32,7 +32,7 @@ scenario "Visitor can create a new account" do
   expect(page).to_not have_content('Logout')
 end
 
-scenario 'Visitor can not create a new account without username' do
+xscenario 'Visitor can not create a new account without username' do
     visit '/login'
     click_link 'Create Account'
 

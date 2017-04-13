@@ -1,5 +1,6 @@
 <%= flash.now[:error] %>
 
+
 <%= form_for :session, url: login_path do |f| %>
   <%= f.label :email %>
   <%= f.text_field :email %>
@@ -10,4 +11,4 @@
   <%= f.submit "Login" %>
 <% end %>
 
-  <%= link_to "Create Account", signup_path %>
+<%= link_to "Create Account", signup_path %>
