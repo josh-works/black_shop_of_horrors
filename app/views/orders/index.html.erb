@@ -1,0 +1,10 @@
+<h1>Your Past Orders</h1>
+<h3>Purchase successful</h3>
+Total Cost: <%= @cart.total_cost %>
+Total Items Bought: <%= @cart.total_count %>
+
+<% @cart.items.each do |item| %>
+  <%= item.title %>
+  <%= item.description %>
+  <span class="price"><%= number_to_currency(item.price) %></span>
+<% end %>
