@@ -16,11 +16,12 @@
       <div id="side">
         <ul>
           <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Dashboard", dashboard_path %></li>
           <li><a href="www">FAQs</a></li>
           <li><a href="www">Contact</a></li>
           <li><a href="www">News</a></li>
-          <%= link_to "Log in", "/login" %>
-          <%= link_to "Sign up", "/signup" %>
+          <%= link_to log_title, log_route, method: log_method %>
+          <%= link_to "View Cart", cart_path %>
         </ul>
       </div>
       <div id="main">

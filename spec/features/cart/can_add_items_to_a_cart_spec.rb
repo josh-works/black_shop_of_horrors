@@ -10,13 +10,12 @@ RSpec.feature "Can add item to a cart", type: :feature do
 
   scenario "adding items to cart" do
     visit categories_path
-    click_on "View all Nuclear Weapons"
-
+    click_on "View"
     expect(current_path).to eq(category_path(category))
 
     expect(page).to have_content("Nuke")
     expect(page).to have_content("Blow thine enemies to smitherines")
-    expect(page).to have_content("22000000")
+    expect(page).to have_content("$22,000,000.00")
 
     expect(page).to have_content("Radioactive Terrorists")
     expect(page).to have_content("Destroy everything")
@@ -45,13 +44,13 @@ RSpec.feature "Can add item to a cart", type: :feature do
   scenario "removing items from cart" do
     visit "/categories"
 
-    click_on "View all Nuclear Weapons"
+    click_on "View"
 
     expect(current_path).to eq(category_path(category))
 
     expect(page).to have_content("Nuke")
     expect(page).to have_content("Blow thine enemies to smitherines")
-    expect(page).to have_content("22000000")
+    expect(page).to have_content("$22,000,000.00")
     expect(page).to have_content("Radioactive Terrorists")
     expect(page).to have_content("Destroy everything")
     expect(page).to have_content("5")

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Visitor can see items they added after becoming a 'user'" do
-  scenario 'they can see the items after becoming a registered user' do
+  xscenario 'they can see the items after becoming a registered user' do
 
     visit items_path
 
