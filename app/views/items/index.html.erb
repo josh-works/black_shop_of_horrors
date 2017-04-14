@@ -1,13 +1,28 @@
+<p id="notice"><%= notice %></p>
+
 <h3>All items</h3>
 
-<div class="item list">
-  <ul>
-
+<table>
   <% @items.each do |item| %>
-    <img src="<%= item.image %>" alt="<%= item.title %> ">
-    <li><%= item.title %></li>
-    <%= item.description %>
-    <%= item.price %>
+  <tr class="<%= cycle('category_line_odd', 'category_line_even') %>">
+    <td>
+      <%= image_tag(item.image, class: 'item_image') %>
+    </td>
+
+    <td class="item_title">
+      <dl>
+        <dt> <%= item.title %> </dt>
+        <dd> <%= item.description %> </dd>
+      </dl>
+    </td>
+    <td class="price">
+      <dl>
+        <dt>
+          <span class="price"><%= number_to_currency(item.price) %></span>
+        </dt>
+      </dl>
+    </td>
   </ul>
   <% end %>
-</div>
+  </tr>
+</table>

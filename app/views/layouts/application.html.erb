@@ -16,16 +16,14 @@
       <div id="side">
         <ul>
           <li><%= link_to "Home", root_path %></li>
-          <% if current_user %>
-          <li><%= link_to "Dashboard", dashboard_path %></li>
-          <% end %>
+          <li><%= dashboard_if_logged_in %></li>
           <li><a href="www">FAQs</a></li>
           <li><a href="www">Contact</a></li>
           <li><a href="www">News</a></li>
-          <li><%= link_to log_title, log_route, method: log_method %></li>
+          <li><%= login_logout_link %></li>
           <li><%= link_to "Categories", categories_path %></li>
           <li><%= link_to "Items", items_path %></li>
-          <li><%= link_to "View Cart", cart_path %></li>
+          <li><%= link_to "View Cart #{cart_count}", cart_path %></li>
         </ul>
       </div>
       <div id="main">

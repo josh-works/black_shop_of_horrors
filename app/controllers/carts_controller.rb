@@ -12,13 +12,11 @@ class CartsController < ApplicationController
   end
 
   def show
-    redirect_to categories_path
+    @cart_item = @cart.cart_items
   end
 
   def index
-  end
-
-  def edit
+    @cart_item = @cart.cart_items
   end
 
   def destroy

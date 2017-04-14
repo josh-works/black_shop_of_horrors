@@ -73,31 +73,3 @@ RSpec.feature "Can add item to a cart", type: :feature do
 
   end
 end
-
-
-# --------------
-# @cart = Cart.new({@category.items.first.id.to_s => 1,
-#                 @category.items.last.id.to_s => 1})
-# binding.pry
-# visit cart_path
-#
-# expect(page).to have_content("Radioactive Terrorists")
-# expect(page).to have_content("Nuke")
-# expect(page).to have_content("Your shopping cart")
-#
-# # And I click link "Remove"
-#
-# # parent child relationship :last???
-# click_on "Remove"
-# # Then my current page should be "/cart"
-# expect current_path.to eq(cart_path)
-# # And the message should say "Successfully removed SOME_ITEM from your cart."
-# expect(page).to have_content "Successfully removed SOME_ITME from your cart."
-# # And I should see a message styled in green
-# # within Flash, have_content "re-add SOMEITEM"
-# # within Flash, have_link "re-add SOMEITEM", href: "add item link"
-#
-# expect(page).to have_content("Re-add SOME_ITEM")
-# # And the title "SOME_ITEM" should be a link to that item in case the user wants to add it back
-# expect(page).to have_content("Nuke")
-# # And I should not see the item listed in cart
