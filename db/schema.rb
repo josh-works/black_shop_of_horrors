@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170412202926) do
+ActiveRecord::Schema.define(version: 20170413234946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20170412202926) do
     t.string   "slug"
   end
 
+  create_table "invoices", force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "order_id"
+    t.index ["item_id"], name: "index_invoices_on_item_id", using: :btree
+    t.index ["order_id"], name: "index_invoices_on_order_id", using: :btree
+  end
+
   create_table "items", force: :cascade do |t|
     t.string  "title"
     t.string  "description"
@@ -30,6 +37,11 @@ ActiveRecord::Schema.define(version: 20170412202926) do
     t.string  "image"
     t.integer "category_id"
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
 
   create_table "organs", force: :cascade do |t|
@@ -45,5 +57,8 @@ ActiveRecord::Schema.define(version: 20170412202926) do
     t.integer "role",            default: 0
   end
 
+  add_foreign_key "invoices", "items"
+  add_foreign_key "invoices", "orders"
   add_foreign_key "items", "categories"
+  add_foreign_key "orders", "users"
 end

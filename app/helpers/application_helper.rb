@@ -24,7 +24,7 @@ module ApplicationHelper
 
   def checkout_cart_items
     if current_user
-      link_to "Checkout", checkout
+      link_to "Checkout", orders_path
     else
       link_to "Login or Sign up", login_path
     end

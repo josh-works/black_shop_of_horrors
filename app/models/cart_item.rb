@@ -1,6 +1,7 @@
 class CartItem < SimpleDelegator
   include ActionView::Helpers::NumberHelper
   attr_reader :id, :quantity
+  
   def initialize(id, quantity)
     @id = id
     @quantity = quantity
