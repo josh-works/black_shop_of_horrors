@@ -17,8 +17,6 @@ class CartsController < ApplicationController
 
   def index
     @cart_item = @cart.cart_items
-    binding.pry
-    current_user.orders << @cart_item
   end
 
   def destroy

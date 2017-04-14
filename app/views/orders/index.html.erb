@@ -3,7 +3,6 @@
 <h2>Total Orders: <%= @orders.count %></h2>
 <% @orders.reverse.each_with_index do |order, index|%>
 <h4>Order ID: <%= order.id %></h4>
-<%= binding.pry %>
   <% order.invoices.each do |invoice| %>
     Title: <%= invoice.item.title %>  <br>
     Quantity: <%= invoice.quantity %> <br>
