@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   root to: "sessions#index"
 
-  get '/cart', to: 'carts#index'
-
-  resource :cart, only: [:show, :create, :index, :destroy]
+  get '/cart', to: 'carts#show'
+  resource :cart, only: [:create, :index, :destroy]
   resources :items, :categories, only: [:index]
   resources :users, only: [:create, :show]
 
@@ -14,7 +13,10 @@ Rails.application.routes.draw do
     get '/create-item',      to: 'items#new',        as: 'create_item'
   end
 
-  get    "/signup",         to: "users#new",        as: 'signup'
+  resources :orders, only: [:create, :show, :index]
+
+  # get    '/orders',         to: 'carts#index',       as: 'orders'
+  get    '/signup',         to: 'users#new',        as: 'signup'
   get    '/login',          to: 'sessions#new',     as: 'login'
   post   '/login',          to: 'sessions#create'
   delete '/logout',         to: 'sessions#destroy', as: 'logout'

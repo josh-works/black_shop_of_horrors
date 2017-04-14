@@ -4,27 +4,33 @@ module ApplicationHelper
     "checkout"  if current_user
   end
 
-  def log_title
+  def login_logout_link
     if current_user
-      "Logout"
+      link_to "Logout", logout_path, method: :delete
     else
-      "Login"
+      link_to "Login", login_path
     end
   end
 
-  def log_route
+  def dashboard_if_logged_in
     if current_user
-      logout_path
-    else
-      login_path
+      link_to "Dashboard", dashboard_path
     end
   end
 
-  def log_method
+  def cart_count
+    "(#{@cart.total_count})" if @cart.total_count > 0
+  end
+
+  def checkout_cart_items
     if current_user
-      "delete"
+      link_to "Checkout", orders_path
     else
-      "get"
+      link_to "Login or Sign up", login_path
     end
+  end
+
+  def number
+    0
   end
 end
