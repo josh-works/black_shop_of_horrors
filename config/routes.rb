@@ -12,8 +12,10 @@ Rails.application.routes.draw do
     get '/create-category',  to: 'categories#new',   as: 'create_category'
     get '/create-item',      to: 'items#new',        as: 'create_item'
   end
-  
-  get    '/orders',         to: 'carts#index',       as: 'orders'
+
+  resources :orders, only: [:create, :show, :index]
+
+  # get    '/orders',         to: 'carts#index',       as: 'orders'
   get    '/signup',         to: 'users#new',        as: 'signup'
   get    '/login',          to: 'sessions#new',     as: 'login'
   post   '/login',          to: 'sessions#create'

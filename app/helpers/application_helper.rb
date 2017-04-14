@@ -29,4 +29,8 @@ module ApplicationHelper
       link_to "Login or Sign up", login_path
     end
   end
+
+  def number
+    0
+  end
 end

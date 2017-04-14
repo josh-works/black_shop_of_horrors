@@ -15,14 +15,15 @@ RSpec.feature "Viewing order history of illegal items" do
     click_on "Add Liver to Cart"
     click_on "Add Small Intestines to Cart"
     click_on "Add Heart to Cart"
+    expect(page).to have_content("View Cart (3)")
 
     click_on "View Cart"
 
     click_on "Checkout"
-    expect(current_path).to eq(orders_path)
+    expect(current_path).to eq(order_path(@user.orders.last))
 
     expect(page).to have_content("View Cart")
-    expect(page).to_not have_content("View Cart (3)")
+    expect(page).to_not have_content("View Cart (4)")
 
 
     expect(page).to have_content(@item1.title)

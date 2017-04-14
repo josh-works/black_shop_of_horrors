@@ -8,9 +8,9 @@
   Total: <%= item.subtotal %> <br>
   Quantity: <%= item.quantity %> <br>
   <%= link_to "Remove #{item.title} from Cart!", cart_path(item_id: item.id), method: :delete, class: "btn btn-danger" %> <br> <br>
-  <%= link_to "Remove all #{item.title} from Cart!", cart_path(item_id: item.id), method: :delete, class: "btn btn-danger" %> <br> <br>
+  <%= link_to "Remove all #{item.title} from Cart!", @cart.clear_item %> <br> <br>
 <% end %>
 
 <h3>Total Cost: <%= @cart.total_cost %></h3>
 
-<%= checkout_cart_items %>
+<%= link_to "Checkout", orders_path, method: "post" %>
