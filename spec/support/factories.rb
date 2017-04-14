@@ -7,7 +7,7 @@ FactoryGirl.define do
   end
 
   factory :item do
-    
+
 
     title "Liver"
     description "Cuz your liver is not up to the task"
@@ -16,14 +16,3 @@ FactoryGirl.define do
     association :category, factory: :category
   end
 end
-
-
-# factory :car do
-#     owner
-#     driver
-#     sequence :monetary_value do |n|
-#       n
-#     end
-#     sequence :max_speed do |n|
-#       n
-#     end
