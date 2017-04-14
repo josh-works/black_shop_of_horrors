@@ -8,10 +8,10 @@
 Item.destroy_all
 Category.destroy_all
 
-organ = Category.create!(title: "Organs", image: "https://aos.iacpublishinglabs.com/question/aq/700px-394px/organs-left-side-body_6aca59228c938e40.jpg?domain=cx.aos.ask.com")
-Category.create!(title: "Seth's hair follicles", image: "https://www.cellapplications.com/sites/default/files/Hair.jpg")
-Category.create!(title: "Biological Weapons", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/WMD-biological.svg/200px-WMD-biological.svg.png")
-Category.create!(title: "Plumbus", image: "https://www.thinkgeek.com/images/products/zoom/ivns_plumbus.jpg")
+organ = Category.create!(title: "Organs", image: "")
+weapons = Category.create!(title: "Weapons", image: "")
+cars = Category.create!(title: "Weapons", image: "")
+bio_weapons = Category.create!(title: "Biological Weapons", image: "")
 
 
 organ.items.create!(title: "Heart",
