@@ -4,7 +4,12 @@ RSpec.describe "as a visitor" do
 
   before :each do
     binding.pry
-    category = create(:category, 3)
+    category = create(:category)
+    Item.create(:item, category: category)
+    # item1 = create(:item)
+    # item2 = create(:item)
+    # item3 = create(:item)
+    # category.create(item1)
   end
 
   context "can view all items" do

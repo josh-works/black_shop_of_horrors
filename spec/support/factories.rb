@@ -6,10 +6,18 @@ FactoryGirl.define do
     slug "organs"
   end
 
-  # This will use the User class (Admin would have been guessed)
-  factory :admin, class: User do
-    first_name "Admin"
-    last_name  "User"
-    admin      true
+  factory :item do
+    title "Liver"
+    description "Cuz your liver is not up to the task"
+    price 99
+    image "www.image.png"
+    association :category, factory: :category
   end
+
+  # This will use the User class (Admin would have been guessed)
+  # factory :admin, class: User do
+  #   first_name "Admin"
+  #   last_name  "User"
+  #   admin      true
+  # end
 end
