@@ -9,10 +9,10 @@ User.destroy_all
 Item.destroy_all
 Category.destroy_all
 
-organ = Category.create!(title: "Organs", image: "")
-weapons = Category.create!(title: "Weapons", image: "")
-cars = Category.create!(title: "Weapons", image: "")
-bio_weapons = Category.create!(title: "Biological Weapons", image: "")
+organ = Category.create!(title: "Organs", image: "https://i.imgur.com/p8HIlRr.jpg")
+weapons = Category.create!(title: "Weapons", image: "https://i.imgur.com/GLaydj2.jpg")
+vehicles = Category.create!(title: "Vehicles", image: "http://media.caranddriver.com/images/media/51/2017-10best-lead-photo-672628-s-original.jpg")
+nuclear_weapons = Category.create!(title: "Nuclear Weapons", image: "https://i.imgur.com/DJHRrOt.jpg")
 
 
 organ.items.create!(title: "Heart",
