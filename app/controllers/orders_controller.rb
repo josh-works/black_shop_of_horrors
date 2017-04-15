@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
     @cart.cart_items.each do |item|
       @order.invoices.create(item_id: item.id, quantity: item.quantity)
     end
+    
     redirect_to order_path(@order)
   end
 
