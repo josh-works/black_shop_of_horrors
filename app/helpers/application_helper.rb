@@ -1,9 +1,5 @@
 module ApplicationHelper
 
-  def checkout
-    "checkout"  if current_user
-  end
-
   def login_logout_link
     if current_user
       link_to "Logout", logout_path, method: :delete
@@ -32,5 +28,11 @@ module ApplicationHelper
 
   def purchase_method
     link_to 'Purchase', payments_path, method: 'POST'
+  end
+
+  def admin_edit_button
+    if current_user.admin?
+      link_to 'Edit Account', edit_admin_user_path(current_user)
+    end
   end
 end
