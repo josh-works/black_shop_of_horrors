@@ -24,13 +24,13 @@ module ApplicationHelper
 
   def checkout_cart_items
     if current_user
-      link_to "Checkout", orders_path, method: "post"
+      link_to "Checkout", payments_path
     else
       link_to "Login or Sign up", login_path
     end
   end
 
-  def number
-    0
+  def purchase_method
+    link_to 'Purchase', payments_path, method: 'POST'
   end
 end
