@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   end
 
   resources :orders, only: [:create, :show, :index]
+  resources :payments, only: [:create, :index]
 
-  # get    '/orders',         to: 'carts#index',       as: 'orders'
   get    '/signup',         to: 'users#new',        as: 'signup'
   get    '/login',          to: 'sessions#new',     as: 'login'
   post   '/login',          to: 'sessions#create'
