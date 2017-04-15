@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :show]
 
   namespace :admin do
-    resources :users, only: [:index, :update]
+    resources :users, only: [:index]
     resources :items, :categories, only: [:create, :update, :destroy]
     get '/create-category',  to: 'categories#new',   as: 'create_category'
     get '/create-item',      to: 'items#new',        as: 'create_item'
