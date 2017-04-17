@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Can add item to a cart", type: :feature do
   attr_reader :category
   before :each do
-    @category = Category.create!(title: "Nuclear Weapons", image: "https://www.google.com")
+    @category = Category.create!(title: "Nuclear Weapons", image: "nuclear_weapons.jpg")
     @item1 = @category.items.create!(title: "Nuke", description: "Blow thine enemies to smitherines", price: 22000000, image: "https://www.ilovenukes.com")
     @item2 = @category.items.create!(title: "Radioactive Terrorists", description: "Destroy everything", price: 5, image: "https://www.yikes.com")
   end

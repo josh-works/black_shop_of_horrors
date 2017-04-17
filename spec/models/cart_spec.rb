@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Cart, type: :model do
   before :each do
-    weapons = Category.create(title: "Weapons", image: "www.nuke.com")
-    @i1 = weapons.items.create(title: "Nuke", image: "www.nuke.com", price: 22, description: "hello world!")
-    @i2 = weapons.items.create(title: "Banana", image: "www.banana.com", price: 23, description: "hi josh, chris, and banana")
+    weapons = Category.create(title: "Weapons", image: "weapons.jpg")
+    @i1 = weapons.items.create(title: "Nuke", image: "nuclear_weapons.gif", price: 22, description: "hello world!")
+    @i2 = weapons.items.create(title: "chris the living weapon", image: "chris_living_weapon.jpg", price: 23, description: "hi josh, chris, and his weapon named chris")
   end
 
   it "can calculate the total number of items it holds" do
