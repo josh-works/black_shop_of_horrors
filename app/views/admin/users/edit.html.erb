@@ -1,4 +1,5 @@
-<%= form_for @user do |f| %>
+<%= form_for @admin do |f| %>
+
 <%= f.label :email %> <br>
 <%= f.text_field :email %> <br>
 
@@ -15,5 +16,5 @@
 <%= f.password_field :password_confirmation %> <br>
 
 
-<%= f.submit "Create Account"%> <br>
+<%= f.submit "Edit Account" %> <br>
 <% end %>

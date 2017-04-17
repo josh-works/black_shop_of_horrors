@@ -3,7 +3,8 @@ class Order < ApplicationRecord
   belongs_to :user
   has_many :invoices
   has_many :items, through: :invoices
-
+  enum status: %w(Completed Paid Cancelled Ordered)
+  
   def total_cost
     cost = 0
     self.invoices.each do |invoice|

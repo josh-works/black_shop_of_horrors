@@ -4,18 +4,18 @@ Rails.application.routes.draw do
   get '/cart', to: 'carts#show'
   resource :cart, only: [:create, :index, :destroy]
   resources :items, :categories, only: [:index]
-  resources :users, only: [:create, :show]
+  resources :users, only: [:create, :show, :update]
 
   namespace :admin do
-    resources :users, only: [:index, :update]
+    resources :users, only: [:index, :edit]
     resources :items, :categories, only: [:create, :update, :destroy]
     get '/create-category',  to: 'categories#new',   as: 'create_category'
     get '/create-item',      to: 'items#new',        as: 'create_item'
   end
 
   resources :orders, only: [:create, :show, :index]
+  resources :payments, only: [:create, :index]
 
-  # get    '/orders',         to: 'carts#index',       as: 'orders'
   get    '/signup',         to: 'users#new',        as: 'signup'
   get    '/login',          to: 'sessions#new',     as: 'login'
   post   '/login',          to: 'sessions#create'
