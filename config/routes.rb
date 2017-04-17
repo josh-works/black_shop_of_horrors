@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: "sessions#index"
 
   get '/cart', to: 'carts#show'
-  resource :cart, only: [:create, :index, :destroy]
+  resource :cart, only: [:create, :destroy]
   resources :items, :categories, only: [:index]
   resources :users, only: [:create, :show]
 
