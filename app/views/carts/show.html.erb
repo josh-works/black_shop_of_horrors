@@ -1,3 +1,4 @@
+<%= sanitize(flash.now[:removed]) %>
 <h1>Your cart!</h1> <br>
 <h3>You have <%= @cart.total_count %> illegal items in your cart</h3> <br>
 
@@ -7,8 +8,7 @@
   Unit Price: <%= item.format_price %> <br>
   Total: <%= item.subtotal %> <br>
   Quantity: <%= item.quantity %> <br>
-  <%= link_to "Remove #{item.title} from Cart!", cart_path(item_id: item.id), method: :delete, class: "btn btn-danger" %> <br> <br>
-  <%= link_to "Remove all #{item.title} from Cart!", cart_path(item_id: item.id), method: :delete, class: "btn btn-danger" %> <br> <br>
+  <%= link_to "Remove Item", cart_path(item_id: item.id), method: :delete, class: "btn btn-danger" %> <br> <br>
 <% end %>
 
 <h3>Total Cost: <%= @cart.total_cost %></h3>

@@ -21,6 +21,7 @@ class CartsController < ApplicationController
 
   def destroy
     item_id = params[:item_id]
+    flash[:removed] = %Q[<a href="/item/#{item_id}">#{Item.find(item_id).title}</a> removed from Cart]
     @cart.delete(item_id)
     redirect_to cart_path
   end
