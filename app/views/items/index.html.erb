@@ -19,6 +19,7 @@
       <dl>
         <dt>
           <span class="price"><%= number_to_currency(item.price) %></span>
+          <%= button_to "Add #{item.title} to Cart!", cart_path(item_id: item.id), class: "btn btn-danger" %>
         </dt>
       </dl>
     </td>
