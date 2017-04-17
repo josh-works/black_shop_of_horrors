@@ -3,10 +3,8 @@ class CartsController < ApplicationController
 
   def create
     item = Item.find(params[:item_id])
-    binding.pry
 
     @cart.add_item(item.id)
-    # item.quantity = params[:quantity] if params[:quantity]
     session[:cart] = @cart.contents
 
     flash[:notice] = "You now have #{pluralize(@cart.count_of(item.id), item.title)}."
