@@ -31,11 +31,7 @@ class Cart
   end
 
   def delete(key)
-    if contents[key.to_s] > 1
-      contents[key.to_s] = (contents[key.to_s] - 1)
-    else
-      contents.delete(key.to_s)
-    end
+    contents.delete(key.to_s)
   end
 
   def total_cost
