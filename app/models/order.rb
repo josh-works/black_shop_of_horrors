@@ -4,7 +4,7 @@ class Order < ApplicationRecord
   has_many :invoices
   has_many :items, through: :invoices
   enum status: %w(Completed Paid Cancelled Ordered)
-  
+
   def total_cost
     cost = 0
     self.invoices.each do |invoice|
@@ -12,4 +12,8 @@ class Order < ApplicationRecord
     end
     number_to_currency(cost)
   end
+
+  # def subtotal
+  # end
+
 end
