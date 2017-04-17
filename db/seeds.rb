@@ -5,9 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Invoice.destroy_all
+Order.destroy_all
 User.destroy_all
 Item.destroy_all
 Category.destroy_all
+
 
 User.create!(first_name: "Ad", last_name: "min", email: "admin@admin.com", password: "admin1", password_confirmation: "admin1", role: 1)
 organ = Category.create!(title: "Organs", image: "https://i.imgur.com/p8HIlRr.jpg")
