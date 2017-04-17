@@ -3,12 +3,18 @@
 
 <table class="items">
   <% @order.items.each do |item| %>
-        <%= link_to item.title, "#" %><br />
+  # order invoices
+        <%= link_to item.title, item_path(item) %><br />
         Quantity:
         <%= @order.items.where(id: item.id).count %><br />
-        Status:
-        <%= @order.status %> at <%= @order.created_at.strftime("%Y %B %d") %>
+        Unit Price:
+        <%= number_to_currency(item.price) %><br />
+        Sub-total:
+        <%= @order.invoices.first.quantity_cost %><br />
   <% end %>
+  Status:
+  <b><%= @order.status %></b> on <%= @order.created_at.strftime("%B %d, %Y") %> at
+  <%= @order.created_at.strftime("%l:%M %p") %><br />
 </table>
 
 <%= link_to "Back to all orders", orders_path %>

@@ -2,7 +2,7 @@
 
 <h2>Total Orders: <%= @orders.count%></h2>
 
-<% @orders.reverse.each_with_index do |order, index|%>
+<% @orders.reverse.each do |order|%>
 <%= link_to "Order ID:", order_path(order)%> <%= order.id %> <br>
   <% order.invoices.each do |invoice| %>
     Title: <%= invoice.item.title %>  <br>

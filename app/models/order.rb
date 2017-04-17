@@ -12,4 +12,8 @@ class Order < ApplicationRecord
     end
     number_to_currency(cost)
   end
+
+  # def subtotal
+  # end
+
 end
