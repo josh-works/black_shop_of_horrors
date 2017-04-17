@@ -1,12 +1,14 @@
-<%= @order.id %>
-<% @order.items.each do |item| %>
-  <%= item.title %>
-<% end %>
+<h3>Order placed on <%= @order.created_at.strftime("%Y %B %d") %></h3>
 
 
+<table class="items">
+  <% @order.items.each do |item| %>
+        <%= link_to item.title, "#" %><br />
+        Quantity:
+        <%= @order.items.where(id: item.id).count %><br />
+        Status:
+        <%= @order.status %> at <%= @order.created_at.strftime("%Y %B %d") %>
+  <% end %>
+</table>
 
-<%= @order.status %>
-
-
-
-<%= link_to "Orders", orders_path %>
+<%= link_to "Back to all orders", orders_path %>

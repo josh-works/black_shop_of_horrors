@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get '/cart', to: 'carts#show'
   resource :cart, only: [:create, :destroy]
+  resources :items, only: [:show]
   resources :items, :categories, only: [:index]
   resources :users, only: [:create, :show]
 

@@ -1,14 +1,16 @@
 <h1>Order History</h1>
 
 <h2>Total Orders: <%= @orders.count%></h2>
+
 <% @orders.reverse.each_with_index do |order, index|%>
 <%= link_to "Order ID:", order_path(order)%> <%= order.id %> <br>
   <% order.invoices.each do |invoice| %>
     Title: <%= invoice.item.title %>  <br>
     Quantity: <%= invoice.quantity %> <br>
     Unit Cost: <%= invoice.item_cost %> <br>
-    Quantity Cost: <%= invoice.quantity_cost %> <br> <br>
+    Quantity Cost: <%= invoice.quantity_cost %><br>
+    Created at: <%= order.created_at.strftime("%Y %B %d") %>
   <% end %>
-  <p><strong>Created On: <%= order.created_at.strftime("%Y %B %d") %><strong></p>
+  <!-- <p><strong>Created On: <%#= order.created_at.strftime("%Y %B %d") %><strong></p> -->
   <p><strong>Total Cost: <%= order.total_cost %><strong></p>
 <% end %>

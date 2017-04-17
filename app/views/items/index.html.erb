@@ -11,7 +11,7 @@
 
     <td class="item_title">
       <dl>
-        <dt> <%= item.title %> </dt>
+        <dt> <%= link_to item.title, item_path(item) %> </dt>
         <dd> <%= item.description %> </dd>
       </dl>
     </td>
