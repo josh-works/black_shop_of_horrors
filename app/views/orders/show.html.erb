@@ -16,4 +16,6 @@
   <%= @order.created_at.strftime("%l:%M %p") %><br />
 </table>
 
+Order total: <%= @order.total_cost %><br />
+
 <%= link_to "Back to all orders", orders_path %>
