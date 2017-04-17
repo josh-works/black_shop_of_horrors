@@ -25,28 +25,20 @@ class Cart
   end
 
   def items
-    contents.keys.map do |id|
-      Item.find(id)
-    end
+    contents.keys.map { |id| Item.find(id) }
   end
 
   def delete(key)
-    if contents[key.to_s] > 1
-      contents[key.to_s] = (contents[key.to_s] - 1)
-    else
-      contents.delete(key.to_s)
-    end
+    contents.delete(key.to_s)
   end
 
   def total_cost
-    cost = 0
-    contents.each{ |key, value| cost += (Item.find(key).price * value) }
-    number_to_currency(cost)
+    number_to_currency(contents.reduce(0) do |sum, item|
+      sum += (Item.find(item.first).price * item.last)
+    end)
   end
 
   def cart_items
-    contents.map do |id, quantity|
-      CartItem.new(id, quantity)
-    end
+    contents.map { |id, quantity| CartItem.new(id, quantity) }
   end
 end

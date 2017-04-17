@@ -35,11 +35,11 @@ RSpec.describe Cart, type: :model do
   end
 
   context "can remove single item from cart" do
-    it "deletes one item" do
+    it "deletes item" do
       cart = Cart.new({"1" => 3, "2" => 1})
       cart.delete("1")
       cart.delete("2")
-      expect(cart.total_count).to eq(2)
+      expect(cart.total_count).to eq(0)
     end
   end
 
