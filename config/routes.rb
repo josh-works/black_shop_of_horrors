@@ -11,7 +11,8 @@ Rails.application.routes.draw do
     resources :items, :categories, only: [:create, :update, :destroy]
     get '/create-category',  to: 'categories#new',   as: 'create_category'
     get '/create-item',      to: 'items#new',        as: 'create_item'
-    get '/dashboard',  to: 'users#dashboard',  as: 'dashboard'
+    get '/dashboard',        to: 'users#dashboard',  as: 'dashboard'
+    get '/orders',           to: 'orders#all',       as: 'orders'
   end
 
   resources :orders, only: [:create, :show, :index]
