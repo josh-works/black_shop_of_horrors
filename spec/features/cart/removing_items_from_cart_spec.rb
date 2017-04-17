@@ -15,7 +15,6 @@ RSpec.describe "When removing items from cart" do
     click_on "Remove Item"
 
     expect(page).to have_content("Liver removed from Cart")
-    save_and_open_page
 
     click_on "Liver"
 
