@@ -1,12 +1,20 @@
-<%= @order.id %>
-<% @order.items.each do |item| %>
-  <%= item.title %>
-<% end %>
+<h3>Order placed on <%= @order.created_at.strftime("%Y %B %d") %></h3>
 
 
+<table class="items">
+  <% @order.items.each do |item| %>
+  # order invoices
+        <%= link_to item.title, item_path(item) %><br />
+        Quantity:
+        <%= @order.items.where(id: item.id).count %><br />
+        Unit Price:
+        <%= number_to_currency(item.price) %><br />
+        Sub-total:
+        <%= @order.invoices.first.quantity_cost %><br />
+  <% end %>
+  Status:
+  <b><%= @order.status %></b> on <%= @order.created_at.strftime("%B %d, %Y") %> at
+  <%= @order.created_at.strftime("%l:%M %p") %><br />
+</table>
 
-<%= @order.status %>
-
-
-
-<%= link_to "Orders", orders_path %>
+<%= link_to "Back to all orders", orders_path %>
