@@ -2,15 +2,14 @@
 
 
 <table class="items">
-  <% @order.items.each do |item| %>
-  # order invoices
-        <%= link_to item.title, item_path(item) %><br />
+  <% @order.invoices.each do |invoice| %>
+        <%= link_to invoice.item.title, item_path(invoice.item) %><br />
         Quantity:
-        <%= @order.items.where(id: item.id).count %><br />
+        <%= invoice.quantity %><br />
         Unit Price:
-        <%= number_to_currency(item.price) %><br />
+        <%= invoice.item_cost %><br />
         Sub-total:
-        <%= @order.invoices.first.quantity_cost %><br />
+        <%= invoice.quantity_cost %><br />
   <% end %>
   Status:
   <b><%= @order.status %></b> on <%= @order.created_at.strftime("%B %d, %Y") %> at
