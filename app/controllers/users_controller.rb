@@ -20,14 +20,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def update
-    if current_user.admin?
-      @user = User.find(params[:id])
-      @user.update(user_params)
-      redirect_to dashboard_path
-    end
-  end
-
   private
 
   def user_params

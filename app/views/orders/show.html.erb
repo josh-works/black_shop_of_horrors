@@ -1,12 +1,7 @@
-<%= @order.id %>
-<% @order.items.each do |item| %>
-  <%= item.title %>
+<% @orders.each do |order|%>
+  <% order.invoices.each do |invoice| %>
+    <%= invoice.item.title %>: <%= invoice.quantity %>
+  <% end %>
 <% end %>
-
-
-
-<%= @order.status %>
-
-
 
 <%= link_to "Orders", orders_path %>
