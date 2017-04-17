@@ -15,6 +15,6 @@ RSpec.feature "admin can change their own info" do
   click_on 'Edit Account'
 
   expect(current_path).to eq(dashboard_path)
-  expect(page).to have_content("Chris")
+  expect(User.last.first_name).to eq("Chris")
   end
 end
