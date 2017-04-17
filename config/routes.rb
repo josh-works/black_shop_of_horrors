@@ -3,9 +3,10 @@ Rails.application.routes.draw do
 
   get '/cart', to: 'carts#show'
   resource :cart, only: [:create, :index, :destroy, :update]
+  resources :users, only: [:create, :show, :update]
   resources :items, only: [:show, :index]
   resources :categories, only: [:index]
-  resources :users, only: [:create, :show, :update]
+
 
   namespace :admin do
     resources :users, only: [:index, :edit]
