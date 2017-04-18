@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :items, only: [:show, :index]
   resources :categories, only: [:index]
 
+  # static pages
+  get '/faq', to: 'pages#show', as: 'faq'
+
 
   namespace :admin do
     resources :users, only: [:index, :edit]
