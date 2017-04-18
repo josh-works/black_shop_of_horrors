@@ -13,9 +13,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: [:index, :edit]
-    resources :items, :categories, only: [:create, :update, :destroy]
+    resources :categories, only: [:create, :index]
+    resources :items, only: [:create, :update, :index, :edit]
     get '/create-category',  to: 'categories#new',   as: 'create_category'
-    get '/create-item',      to: 'items#new',        as: 'create_item'
+    # get '/create-item',      to: 'items#new',        as: 'create_item'
     get '/dashboard',        to: 'users#dashboard',  as: 'dashboard'
     get '/orders',           to: 'orders#all',       as: 'orders'
   end

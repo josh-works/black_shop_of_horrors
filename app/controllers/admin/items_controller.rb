@@ -4,10 +4,17 @@ class Admin::ItemsController < ApplicationController
   end
 
   def update
-    fail
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    redirect_to item_path(@item)
   end
 
   def edit
     @item = Item.find(params[:id])
+  end
+
+private
+  def item_params
+    params.require(:item).permit(:title, :description, :image, :status, :price)
   end
 end

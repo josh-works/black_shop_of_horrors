@@ -30,10 +30,15 @@ module ApplicationHelper
     link_to 'Purchase', payments_path, method: 'POST'
   end
 
-  def admin_edit_button
+  def admin_edit_account_button
     if current_user.admin?
       link_to 'Edit Account', edit_admin_user_path(current_user)
     end
   end
 
+  def admin_edit_item_button
+    if current_user.admin?
+      button_to "Back", edit_admin_item_path(@item), method: "get"
+    end
+  end
 end

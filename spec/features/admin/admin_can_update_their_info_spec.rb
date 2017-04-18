@@ -6,7 +6,8 @@ RSpec.feature "admin can change their own info" do
      "seth", password: "banana1", password_confirmation: "banana1", role: 1)
   end
   scenario "admin changes info" do
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
+  allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
+
   visit dashboard_path
   click_on 'Edit Account'
   expect(current_path).to eq(edit_admin_user_path(@admin) )
