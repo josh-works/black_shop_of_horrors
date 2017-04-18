@@ -5,11 +5,8 @@
 <table>
 <% @orders.reverse.each.with_index do |order, index|%>
   <%= link_to "Order #{index + 1}", order_path(order)%> <br>
-  Total cost: <%= order.total_cost %><br />
-  Created at: <%= order.created_at.strftime("%B %d, %Y" ) %><br />
+  Created at: <%= order.created_at.strftime("%B %d, %Y") %><br />
   Status: <%= order.status %>
-
-
-  <p><strong>Purchase history total cost: <%= order.total_cost %><strong></p>
+  <p><strong>Purchase history total cost: <%= order.total_cost %></strong></p>
 <% end %>
 </table>
