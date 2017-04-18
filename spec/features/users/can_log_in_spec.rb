@@ -11,7 +11,6 @@ RSpec.describe User do
     fill_in "Email", with: "seth@seth"
     fill_in "Password", with: "banana1"
 
-    save_and_open_page
     click_on "Sign In"
 
     expect(current_path).to eq(dashboard_path)
