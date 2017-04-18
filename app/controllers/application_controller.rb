@@ -10,8 +10,10 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    session.clear if @user.nil?
     @user ||= User.find(session[:user_id]) if session[:user_id]
+    rescue ActiveRecord::RecordNotFound
+      session.clear
+    return
   end
 
   def current_admin?
