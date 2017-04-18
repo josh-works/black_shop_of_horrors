@@ -6,13 +6,14 @@ class PaymentsController < ApplicationController
         @order.invoices.create(item_id: item.id, quantity: item.quantity)
       end
     else
-      flash[:error] = "You have no illegal goods in your black market cart"
+      flash[:notice] = "You have no illegal goods in your black market cart"
       redirect_to cart_path
     end
   end
 
   def create
     @order = current_user.orders.last
+    flash[:notice] = "Your order was successful"
     redirect_to order_path(@order)
   end
 end
