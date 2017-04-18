@@ -39,7 +39,8 @@
 
     </td>
     <td class="list_actions">
-
+      <%= link_to "+", cart_path(item_id: item.id, quantity: "+"), method: 'put' %>
+      <%= link_to "-", cart_path(item_id: item.id, quantity: "-"), method: 'put' %><br>
     <%= link_to "Remove Item", cart_path(item_id: item.id), method: :delete, class: "btn btn-danger" %> <br> <br>
   </td>
   <% end %>
