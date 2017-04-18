@@ -41,4 +41,10 @@ module ApplicationHelper
       button_to "Back", edit_admin_item_path(@item), method: "get"
     end
   end
+
+  def admin_dashboard_link
+    if current_user.admin?
+      link_to "Admin Dashboard", admin_dashboard_path, method: "get"
+    end
+  end
 end
