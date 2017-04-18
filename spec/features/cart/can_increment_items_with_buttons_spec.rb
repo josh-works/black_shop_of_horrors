@@ -14,14 +14,14 @@ RSpec.feature "Can increment items in a cart", type: :feature do
 
     visit cart_path
 
-    expect(page).to have_content("Quantity 1")
+    expect(page).to have_content("Quantity: 1")
 
     click_on "+"
 
-    expect(page).to have_content("Quantity 2")
+    expect(page).to have_content("Quantity: 2")
 
     click_on "-"
-    expect(page).to have_content("Quantity 1")
+    expect(page).to have_content("Quantity: 1")
 
   end
 
