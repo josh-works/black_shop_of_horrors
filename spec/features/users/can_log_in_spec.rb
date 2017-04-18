@@ -7,7 +7,6 @@ RSpec.describe User do
 
   it "can log in and out with right credentials" do
     visit '/login'
-
     expect(page).to have_content("Create Account")
     fill_in "Email", with: "seth@seth"
     fill_in "Password", with: "banana1"

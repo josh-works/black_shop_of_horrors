@@ -25,7 +25,7 @@ class Cart
   end
 
   def items
-    contents.keys.map { |id| Item.find(id) }
+    Item.find([contents.keys])
   end
 
   def delete(key)

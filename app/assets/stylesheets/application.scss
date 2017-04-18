@@ -65,7 +65,7 @@
 
 // items styling
 
-.items {
+.items, .carts {
   table {
     border-collapse: collapse;
   }
@@ -112,6 +112,13 @@
     background: #f3fafe;
   }
 }
+
+.total_cost {
+  color: #244
+  
+}
+
+
 
 // style sidebar/nav
 
