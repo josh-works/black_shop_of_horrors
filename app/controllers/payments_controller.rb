@@ -13,7 +13,6 @@ class PaymentsController < ApplicationController
 
   def create
     @order = current_user.orders.last
-
     redirect_to order_path(@order)
   end
 end
