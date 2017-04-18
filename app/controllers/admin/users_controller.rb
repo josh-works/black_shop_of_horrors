@@ -6,4 +6,8 @@ class Admin::UsersController < Admin::BaseController
   def edit
     @admin = current_user
   end
+
+  def dashboard
+
+  end
 end

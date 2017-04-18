@@ -11,6 +11,6 @@ RSpec.feature "Visitor can add items to the cart" do
 
     expect(page).to have_current_path(cart_path)
     expect(page).to have_content(item.title)
-    expect(page).to have_content("Total: #{item.format_price}")
+    expect(page).to have_content("Total Cost: #{item.format_price}")
   end
 end

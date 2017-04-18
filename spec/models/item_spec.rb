@@ -1,30 +1,35 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
-  attr_reader :organs
-
-  it "validations" do
-    # it { should validate_presence_of(:title) }
-    # it { should validate_uniqueness_of(:title) }
+  context "validations" do
+    it { should have_many(:orders) }
+    it { should have_many(:invoices) }
+    it { should validate_presence_of(:description) }
+    it { should validate_presence_of(:title) }
+    it { should validate_uniqueness_of(:image) }
   end
 
-  before :each do
-    @organs = Category.create!(title: "Organs", image: "organs.jpg")
-    @organs.items.create!(title: "Liver",
-                description: "Fresh livers from the healthiest patients",
-                price: 9999,
-                image: "liver.jpg")
-    @organs.items.create!(title: "Small Intestine",
-                description: "Your intestine wearing out? Get a fresh one installed today!",
-                price: 7500,
-                image: "organs.jpg")
-    @organs.items.create!(title: "Heart",
-                description: "All of our hearts will eventually wear out. Why let yours?",
-                price: 25499,
-                image: "heart.jpg")
+  it 'can retun its price' do
+    item = Item.create(title: "power-armor", description:"become godly and take on the world", price: "2500.02", image: "power_armor.png")
+
+    expect(item.format_price).to eq("$2,500.02")
   end
 
-  it "item can be created" do
-    expect(@organs.items.count).to eq(3)
+  it 'can retun its title' do
+    item = Item.create(title: "power-armor", description:"become godly and take on the world", price: "2500.00", image: "power_armor.png")
+
+    expect(item.title).to eq("power-armor")
+  end
+
+  it 'can retun its description' do
+    item = Item.create(title: "power-armor", description:"become godly and take on the world", price: "2500.00", image: "power_armor.png")
+
+    expect(item.description).to eq("become godly and take on the world")
+  end
+
+  it 'can retun its image-file name' do
+    item = Item.create(title: "power-armor", description:"become godly and take on the world", price: "2500.00", image: "power_armor.png")
+
+    expect(item.image).to eq("power_armor.png")
   end
 end

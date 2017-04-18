@@ -65,7 +65,7 @@
 
 // items styling
 
-.items {
+.items, .carts {
   table {
     border-collapse: collapse;
   }
@@ -112,6 +112,13 @@
     background: #f3fafe;
   }
 }
+
+.total_cost {
+  color: #244
+  
+}
+
+
 
 // style sidebar/nav
 
@@ -201,4 +208,52 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+
+
+// orders show page style
+.items {
+  table {
+    border-collapse: collapse;
+  }
+
+  table tr td {
+    padding: 5px;
+    vertical-align: top;
+  }
+
+  .item_image {
+    width: 100px;
+    height: 120px;
+  }
+
+  .item_title {
+    width: 60%;
+  }
+
+  .item_count {
+    width: 20%;
+  }
+
+  dl {
+    margin: 0;
+  }
+
+  dt {
+    color: #244;
+    font-weight: bold;
+    font-size: larger;
+  }
+
+  dd {
+    margin: 0;
+  }
+
+  .list_actions {
+    font-size: x-small;
+    text-align: right;
+    padding-left: 1em;
+  }
+
 }

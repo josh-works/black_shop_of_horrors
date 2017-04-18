@@ -35,4 +35,10 @@ module ApplicationHelper
       link_to 'Edit Account', edit_admin_user_path(current_user)
     end
   end
+
+  # def remove_item_method
+  #
+  #
+  #   link_to flash[:removed], @path
+  # end
 end
