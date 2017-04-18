@@ -15,14 +15,19 @@ class CartsController < ApplicationController
     @cart_item = @cart.cart_items
   end
 
-  def index
-    @cart_item = @cart.cart_items
-  end
-
   def destroy
     item_id = params[:item_id]
     flash[:notice] = "Successfully removed #{view_context.link_to(Item.find(item_id).title, item_path(item_id))} from cart!"
     @cart.delete(item_id)
+    redirect_to cart_path
+  end
+
+  def update
+    if params[:quantity] == "+"
+      @cart.contents[params[:item_id]] += 1
+    else
+      @cart.contents[params[:item_id]] -= 1 unless @cart.contents[params[:item_id]] == 0
+    end
     redirect_to cart_path
   end
 end
