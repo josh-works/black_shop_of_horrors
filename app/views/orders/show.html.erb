@@ -1,19 +1,34 @@
-<h3>Order placed on <%= @order.created_at.strftime("%Y %B %d") %></h3>
-
+<h3>Order placed on <%= @order.created_at.strftime("%B %d, %Y") %></h3>
 
 <table class="items">
   <% @order.invoices.each do |invoice| %>
-        <%= link_to invoice.item.title, item_path(invoice.item) %><br />
-        Quantity:
-        <%= invoice.quantity %><br />
-        Unit Price:
-        <%= invoice.item_cost %><br />
-        Sub-total:
-        <%= invoice.quantity_cost %><br />
+  <tr class ="<%= cycle('category_line_odd', 'category_line_even') %>">
+    <td>
+      <dl>
+        <dt> Item </dt>
+        <dd> <%= link_to invoice.item.title, item_path(invoice.item) %> </dd>
+      </dl>
+    </td>
+    <td>
+      <dt>Quantity</dt>
+      <dd><%= invoice.quantity %></dd>
+    </td>
+    <td>
+      <dt> Unit Price:</dt>
+      <dd><%= invoice.item_cost %></dd>
+    </td>
+    <td>
+      <dt> Sub-total </dt>
+      <dd> <%= invoice.quantity_cost %> </dd>
+    </td>
+  </tr>
   <% end %>
+
   Status:
   <b><%= @order.status %></b> on <%= @order.created_at.strftime("%B %d, %Y") %> at
   <%= @order.created_at.strftime("%l:%M %p") %><br />
 </table>
+
+Order total: <%= @order.total_cost %><br />
 
 <%= link_to "Back to all orders", orders_path %>

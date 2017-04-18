@@ -36,9 +36,4 @@ module ApplicationHelper
     end
   end
 
-  # def remove_item_method
-  #
-  #
-  #   link_to flash[:removed], @path
-  # end
 end

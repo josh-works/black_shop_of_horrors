@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   validates :title, :description, :price, :image, presence: true
   validates :image, uniqueness: true
 
+  enum status: %w(Active Retired)
 
   def format_price
     number_to_currency(price)

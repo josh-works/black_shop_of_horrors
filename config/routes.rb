@@ -2,11 +2,13 @@ Rails.application.routes.draw do
   root to: "sessions#index"
 
   get '/cart', to: 'carts#show'
-
-  resource :cart, only: [:create, :destroy]
+  resource :cart, only: [:create, :index, :destroy, :update]
   resources :users, only: [:create, :show, :update]
   resources :items, only: [:show, :index]
   resources :categories, only: [:index]
+
+  # static pages
+  get '/faq', to: 'pages#show', as: 'faq'
 
 
   namespace :admin do
