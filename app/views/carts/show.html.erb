@@ -2,18 +2,6 @@
 <h1>Your cart!</h1> <br>
 <h3>You have <%= @cart.total_count %> illegal items in your cart</h3> <br>
 
-<!-- <<<<<<< HEAD
-<% @cart_item.each do |item| %>
-  Title: <%= item.title %> <br>
-  Description: <%= item.description %> <br>
-  Unit Price: <%= item.format_price %> <br>
-  Total: <%= item.subtotal %> <br>
-  Quantity: <%= item.quantity %>
-  <%= link_to "+", cart_path(item_id: item.id, quantity: "+"), method: 'put' %>
-  <%= link_to "-", cart_path(item_id: item.id, quantity: "-"), method: 'put' %><br>
-  <%= link_to "Remove Item", cart_path(item_id: item.id), method: :delete, class: "btn btn-danger" %> <br> <br>
-<% end %>
-======= -->
 <table>
   <% @cart_item.each do |item| %>
   <tr class="cycle('category_line_odd', 'category_line_even') %>">
@@ -36,7 +24,6 @@
       </dl>
     </td>
     <td>
-<!-- >>>>>>> origin/staging -->
 
       <dl>
         <dt> Unit Price </dt>
