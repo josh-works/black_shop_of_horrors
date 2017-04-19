@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'materialize-sass'
 gem 'material_icons'
 gem 'bcrypt'
+gem 'mailgun-ruby', require: 'mailgun'
+
 
 
 

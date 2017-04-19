@@ -13,6 +13,8 @@ Category.destroy_all
 
 
 User.create!(first_name: "Ad", last_name: "min", email: "admin@admin.com", password: "admin1", password_confirmation: "admin1", role: 1)
+User.create!(first_name: "Regular", last_name: "min", email: "user@user.com", password: "user", password_confirmation: "user", role: 0)
+User.create!(first_name: "Joe", last_name: "Schmo", email: "joe@joe.com", password: "joe", password_confirmation: "joe", role: 0)
 organ = Category.create!(title: "Organs", image: "https://i.imgur.com/p8HIlRr.jpg")
 weapons = Category.create!(title: "Weapons", image: "https://i.imgur.com/GLaydj2.jpg")
 vehicles = Category.create!(title: "Vehicles", image: "http://media.caranddriver.com/images/media/51/2017-10best-lead-photo-672628-s-original.jpg")
