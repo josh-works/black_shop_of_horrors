@@ -38,13 +38,21 @@ module ApplicationHelper
 
   def admin_edit_item_button
     if current_user.admin?
-      button_to "Back", edit_admin_item_path(@item), method: "get"
+      button_to "Edit", edit_admin_item_path(@item), method: "get"
     end
   end
 
   def admin_dashboard_link
     if current_user.admin?
       link_to "Admin Dashboard", admin_dashboard_path, method: "get"
+    end
+  end
+
+  def show_page_status
+    if @item.status == "Active"
+      button_to "Add #{@item.title} to Cart!", cart_path(item_id: @item.id), class: "btn btn-danger"
+    else
+      button_to "Item Retired"
     end
   end
 end
