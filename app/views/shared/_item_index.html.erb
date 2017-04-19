@@ -1,0 +1,25 @@
+<table>
+  <% @items.each do |item| %>
+  <tr class="<%= cycle('category_line_odd', 'category_line_even') %>">
+    <td>
+      <%= image_tag(item.image, class: 'item_image') %>
+    </td>
+
+    <td class="item_title">
+      <dl>
+        <dt> <%= link_to item.title, item_path(item) %> </dt>
+        <dd> <%= item.description %> </dd>
+      </dl>
+    </td>
+    <td class="price">
+      <dl>
+        <dt>
+          <span class="price"><%= number_to_currency(item.price) %></span>
+          <%= button_to "Add #{item.title} to Cart!", cart_path(item_id: item.id), class: "btn btn-danger" %>
+        </dt>
+      </dl>
+    </td>
+  </ul>
+  <% end %>
+  </tr>
+</table>
