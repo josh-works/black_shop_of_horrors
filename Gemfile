@@ -37,6 +37,7 @@ gem 'mailgun-ruby', require: 'mailgun'
 
 
 group :development, :test do
+  gem 'simplecov'
   gem 'byebug', platform: :mri
   gem 'shoulda-matchers'
   gem 'awesome_print'
