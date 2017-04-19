@@ -12,7 +12,7 @@
   <%= f.text_field :price %>
 
   <%= f.label :status %>
-  <%= f.text_field :status %>
+  <%= f.select :status, ['Active','Retired'], :selected => 'Active' %>
 
 <%= f.submit "Update" %>
 <% end %>
