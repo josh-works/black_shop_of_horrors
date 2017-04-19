@@ -1,8 +1,25 @@
+<h3><%= @item.title %></h3>
+<table>
+  <tr class="<%= cycle('category_line_odd', 'category_line_even') %>">
+    <td>
+      <%= image_tag(@item.image, class: 'item_image') %>
+    </td>
 
-this is the item show page for:<br />
-
-
-<%= @item.title %><br />
-<%= @item.description %><br />
+    <td class="item_title">
+      <dl>
+        <dd> <%= @item.description %> </dd>
+      </dl>
+    </td>
+    <td class="price">
+      <dl>
+        <dt>
+          <span class="price"><%= number_to_currency(@item.price) %></span>
+          <%= show_page_status %>
+        </dt>
+      </dl>
+    </td>
+  </ul>
+  </tr>
+</table>
 <%= link_to "All Items", items_path %>
 <%= admin_edit_item_button %>
