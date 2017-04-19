@@ -1,6 +1,5 @@
 <h3>Order placed on <%= @order.created_at.strftime("%B %d, %Y") %></h3>
 
-
 <table class="items">
   <% @order.invoices.each do |invoice| %>
   <tr class ="<%= cycle('category_line_odd', 'category_line_even') %>">

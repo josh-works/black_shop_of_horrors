@@ -1,4 +1,3 @@
-<%= sanitize(flash.now[:removed]) %>
 <h1>Your cart!</h1> <br>
 <h3>You have <%= @cart.total_count %> illegal items in your cart</h3> <br>
 
@@ -20,7 +19,9 @@
     <td>
       <dl>
         <dt> Quantity </dt>
-        <dd> <%= item.quantity %> </dd>
+        <dd> <%= item.quantity %>
+        <%= link_to "+", cart_path(item_id: item.id, quantity: "+"), method: 'put' %>
+        <%= link_to "-", cart_path(item_id: item.id, quantity: "-"), method: 'put' %><br> </dd>
       </dl>
     </td>
     <td>
@@ -39,7 +40,6 @@
 
     </td>
     <td class="list_actions">
-
     <%= link_to "Remove Item", cart_path(item_id: item.id), method: :delete, class: "btn btn-danger" %> <br> <br>
   </td>
   <% end %>

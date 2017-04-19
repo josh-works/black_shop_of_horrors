@@ -1,4 +1,6 @@
-<%= flash[:success] %>
-<h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
-<%= current_user.email %>
-<%= admin_edit_button %>
+<%= flash[:notice] %>
+<h1><%= current_user.first_name %> <%= current_user.last_name %></h1> <br>
+<%= current_user.email %> <br>
+<%= link_to "Order History", orders_path %> <br>
+<%= admin_edit_account_button %> <br>
+<%= admin_dashboard_link %> <br>

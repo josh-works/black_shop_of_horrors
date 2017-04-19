@@ -7,6 +7,8 @@ RSpec.describe "When removing items from cart" do
     @item1 = @organs.items.create!(title: "Liver", price: 350, description: "beep", image: "https://ichef-1.bbci.co.uk/news/1024/media/images/73793000/jpg/_73793871_liver.jpg")
   end
   it "Show flash with link to item that takes you to show page" do
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
     visit "/organs"
     click_on "Add Liver to Cart"
 
