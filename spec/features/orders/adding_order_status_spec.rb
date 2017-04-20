@@ -20,12 +20,12 @@ RSpec.feature "can view and change order status" do
   click_on 'Checkout'
   expect(current_path).to eq(payments_path)
 
-  expect(@user.orders.last.status).to eq("Completed")
+  expect(@user.orders.last.status).to eq("completed")
   @order = @user.orders.last
   click_on 'Purchase'
 
   expect(current_path).to eq(order_path(@order) )
-  expect(@order.status).to eq("Completed")
+  expect(@order.status).to eq("completed")
   expect(page).to have_content('Liver')
   end
 end

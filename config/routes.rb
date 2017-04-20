@@ -15,10 +15,14 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :edit]
     resources :categories, only: [:create, :index]
     resources :items, only: [:create, :update, :index, :edit]
-    get '/create-category',  to: 'categories#new',   as: 'create_category'
-    # get '/create-item',      to: 'items#new',        as: 'create_item'
-    get '/dashboard',        to: 'users#dashboard',  as: 'dashboard'
-    get '/orders',           to: 'orders#all',       as: 'orders'
+    resources :orders, only: [:update]
+    get '/create-category',     to: 'categories#new',   as: 'create_category'
+    get '/dashboard',           to: 'users#dashboard',  as: 'dashboard'
+    get '/orders',              to: 'orders#all',       as: 'orders'
+    get '/completed',           to: 'orders#completed', as: 'completed'
+    get '/paid',                to: 'orders#paid',      as: 'paid'
+    get '/ordered',             to: 'orders#ordered',   as: 'ordered'
+    get '/cancelled',           to: 'orders#cancelled', as: 'cancelled'
   end
 
   resources :orders, only: [:create, :show, :index]
