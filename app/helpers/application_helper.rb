@@ -31,19 +31,19 @@ module ApplicationHelper
   end
 
   def admin_edit_account_button
-    if current_user.admin?
+    if current_user && current_user.admin?
       link_to 'Edit Account', edit_admin_user_path(current_user)
     end
   end
 
   def admin_edit_item_button
-    if current_user.admin?
+    if current_user && current_user.admin?
       button_to "Edit", edit_admin_item_path(@item), method: "get"
     end
   end
 
   def admin_dashboard_link
-    if current_user.admin?
+    if current_user && current_user.admin?
       link_to "Admin Dashboard", admin_dashboard_path, method: "get"
     end
   end
@@ -53,6 +53,24 @@ module ApplicationHelper
       button_to "Add #{@item.title} to Cart!", cart_path(item_id: @item.id), class: "btn btn-danger"
     else
       button_to "Item Retired"
+    end
+  end
+
+  def orders_count(status)
+    @orders.where(status: status).count
+  end
+
+  def edit_order_status(order)
+    if order.ordered?
+      button_to "Paid", admin_order_path(order, status: "paid"), method: "put"
+    elsif order.paid?
+      button_to "Completed", admin_order_path(order, status: "completed"), method: "put"
+    end
+  end
+
+  def cancel_button(order)
+    if order.ordered? || order.paid?
+      button_to "Cancel Order", admin_order_path(order, status: "cancelled"), method: "put"
     end
   end
 end

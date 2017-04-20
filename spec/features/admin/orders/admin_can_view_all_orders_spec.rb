@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Admin viewing Orders" do
+RSpec.feature "Admin viewing Orders" do
   before(:each) do
     @admin = User.create!(email: "admin@admin", first_name: "admin", last_name: "admin", password: "admin1", password_confirmation: "admin1", role: 1)
     @user = User.create!(email: "seth@seth", first_name: "seth", last_name: "seth", password: "banana1", password_confirmation: "banana1")
@@ -8,18 +8,18 @@ RSpec.describe "Admin viewing Orders" do
     @item1 = @organs.items.create!(title: "Liver", price: 350, description: "beep", image: "https://ichef-1.bbci.co.uk/news/1024/media/images/73793000/jpg/_73793871_liver.jpg")
     @user.orders.create
     @user.orders.create
-    @user.orders.first.invoices.create(item_id: 1, quantity: 2)
-    @user.orders.last.invoices.create(item_id: 1, quantity: 3)
+    @user.orders.first.invoices.create(item_id: @item1.id, quantity: 2)
+    @user.orders.last.invoices.create(item_id: @item1.id, quantity: 3)
   end
 
   context "when visiting /admin/orders" do
-    it "shows all orders" do
+    scenario "shows all orders" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
       visit admin_orders_path
 
       expect(page).to have_content("All Orders History")
-      expect(page).to have_content("Order ID: 1")
-      expect(page).to have_content("Order ID: 2")
+      expect(page).to have_content("Order ID: #{Order.first.id}")
+      expect(page).to have_content("Order ID: #{Order.last.id}")
     end
   end
 end
