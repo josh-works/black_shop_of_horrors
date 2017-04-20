@@ -31,10 +31,13 @@ gem 'jbuilder', '~> 2.5'
 gem 'materialize-sass'
 gem 'material_icons'
 gem 'bcrypt'
+gem 'mailgun-ruby', require: 'mailgun'
+
 
 
 
 group :development, :test do
+  gem 'simplecov'
   gem 'byebug', platform: :mri
   gem 'shoulda-matchers'
   gem 'awesome_print'

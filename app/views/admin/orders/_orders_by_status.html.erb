@@ -7,4 +7,6 @@
     Quantity: <%= invoice.quantity %> <br> <br>
   <% end %>
   Total Cost: <%= order.total_cost %> <br>
+  <%= edit_order_status(order) %>
+  <%= cancel_button(order) %> <br> <br> <br>
 <% end %>
