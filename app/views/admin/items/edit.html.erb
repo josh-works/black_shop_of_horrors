@@ -1,18 +1,18 @@
 <%= form_for [:admin, @item] do |f| %>
   <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title %><br />
 
   <%= f.label :description %>
-  <%= f.text_field :description %>
+  <%= f.text_field :description %><br />
 
   <%= f.label :image %>
-  <%= f.text_field :image %>
+  <%= f.text_field :image %><br />
 
   <%= f.label :price %>
-  <%= f.text_field :price %>
+  <%= f.text_field :price %><br />
 
   <%= f.label :status %>
-  <%= f.select :status, ['Active','Retired'], :selected => 'Active' %>
+  <%= f.select :status, ['Active','Retired'], :selected => 'Active' %><br />
 
 <%= f.submit "Update" %>
 <% end %>

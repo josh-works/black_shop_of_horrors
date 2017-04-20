@@ -28,9 +28,3 @@ RSpec.feature "an admin visits /admin/items" do
     expect(current_path).to eq(edit_admin_item_path(@item))
   end
 end
-
-# As an admin
-#  When I visit “admin/items”
-#  And I click “Edit”
-#  Then my current path should be “/admin/items/:ITEM_ID/edit”
-#  And I should be able to upate title, description, image, and status

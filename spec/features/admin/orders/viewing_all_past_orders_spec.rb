@@ -21,6 +21,7 @@ RSpec.feature "visiting all previous orders" do
     visit admin_orders_path
 
     expect(page).to have_css(".orders", count: 1)
+
     expect(page).to have_link("Order ID: #{@order1.id}", href: order_path(@order1))
   end
 
@@ -70,6 +71,7 @@ RSpec.feature "visiting all previous orders" do
     visit admin_orders_path
 
     expect(page).to have_css(".orders", text: "The page you were looking for doesn't exist.")
+
     expect(page).to_not have_link("Order ID: #{@order1.id}", href: order_path(@order1))
   end
 end
