@@ -1,8 +1,15 @@
 <h1>All Users</h1>
 
+<ul>
+
 <% @users.each do |user| %>
-  <%= user.first_name %>
-  <%= user.last_name %>
-  <%= user.email %>
-  <%= user.role %>
+<div class="user_list">
+
+  <li>User id: <%= user.id %> </li>
+  First: <%= user.first_name %><br />
+  Last: <%= user.last_name %><br />
+  Email: <%= user.email %><br />
+  Role: <%= user.role %><br /><br />
+</div>
 <% end %>
+</ul>
