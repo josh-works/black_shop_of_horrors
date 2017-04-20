@@ -17,6 +17,10 @@ organ = Category.create!(title: "Organs", image: "https://i.imgur.com/p8HIlRr.jp
 weapons = Category.create!(title: "Weapons", image: "https://i.imgur.com/GLaydj2.jpg")
 vehicles = Category.create!(title: "Vehicles", image: "http://media.caranddriver.com/images/media/51/2017-10best-lead-photo-672628-s-original.jpg")
 nuclear_weapons = Category.create!(title: "Nuclear Weapons", image: "https://i.imgur.com/DJHRrOt.jpg")
+User.first.orders.create(status: "ordered")
+User.first.orders.create(status: "completed")
+User.first.orders.create(status: "paid")
+User.first.orders.create(status: "cancelled")
 
 
 organ.items.create!(title: "Heart",
