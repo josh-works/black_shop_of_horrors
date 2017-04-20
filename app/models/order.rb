@@ -3,7 +3,7 @@ class Order < ApplicationRecord
   belongs_to :user
   has_many :invoices
   has_many :items, through: :invoices
-  enum status: %w(Completed Paid Cancelled Ordered)
+  enum status: %w(completed paid cancelled ordered)
 
   def total_cost
     cost = 0
@@ -12,8 +12,4 @@ class Order < ApplicationRecord
     end
     number_to_currency(cost)
   end
-
-  # def subtotal
-  # end
-
 end
