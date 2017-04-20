@@ -23,7 +23,7 @@ RSpec.feature "an admin visits /admin/items" do
     expect(page).to have_content("Joshs boring item")
     expect(page).to_not have_content("item1")
 
-    click_on "Back"
+    click_on "Edit"
 
     expect(current_path).to eq(edit_admin_item_path(@item))
   end
