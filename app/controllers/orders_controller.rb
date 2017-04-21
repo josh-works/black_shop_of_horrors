@@ -9,7 +9,6 @@ class OrdersController < ApplicationController
 
   def index
     if current_user
-      @cart.clear
       @orders = current_user.orders
     else
       redirect_to login_path
