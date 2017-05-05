@@ -4,12 +4,12 @@ class OrdersController < ApplicationController
     @cart.cart_items.each do |item|
       @order.invoices.create(item_id: item.id, quantity: item.quantity)
     end
+    @cart.clear
     redirect_to order_path(@order)
   end
 
   def index
     if current_user
-      @cart.clear
       @orders = current_user.orders
     else
       redirect_to login_path
@@ -19,7 +19,6 @@ class OrdersController < ApplicationController
   def show
     if current_user
       @order = Order.find(params[:id])
-      @cart.clear
     else
       redirect_to login_path
     end
